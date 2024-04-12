@@ -131,6 +131,7 @@ public class DialogoListar extends JDialog implements ActionListener, CaretListe
 		txtS.append("Alto       : " + MenuPrincipal.alto4 + "\n");
 		txtS.append("Quemadores : " + MenuPrincipal.quemadores4 + "\n\n");
 
+			//hola mundo
 	}
 
 	public void caretUpdate(CaretEvent e) {
