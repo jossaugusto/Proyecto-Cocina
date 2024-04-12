@@ -125,9 +125,10 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 
 	protected void actionPerformedCboModelo(ActionEvent e) {
 
+		//codigo de consultar cocina
 	}
 
 	protected void actionPerformedTxtPrecio(ActionEvent e) {
 
 	}
-}
+}//Fin
