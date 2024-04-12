@@ -125,11 +125,43 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 
 	protected void actionPerformedCboModelo(ActionEvent e) {
 
-		//codigo de consultar cocina
-		// hola chanchito feliz
+		int modelo = cboModelo.getSelectedIndex();
+
+		if (modelo == 0) {
+			txtPrecio.setText(MenuPrincipal.precio0 + "");
+			txtAncho.setText(MenuPrincipal.ancho0 + "");
+			txtAlto.setText(MenuPrincipal.alto0 + "");
+			txtFondo.setText(MenuPrincipal.fondo0 + "");
+			txtQuemadores.setText(MenuPrincipal.quemadores0 + "");
+		} else if (modelo == 1) {
+			txtPrecio.setText(MenuPrincipal.precio1 + "");
+			txtAncho.setText(MenuPrincipal.ancho1 + "");
+			txtAlto.setText(MenuPrincipal.alto1 + "");
+			txtFondo.setText(MenuPrincipal.fondo1 + "");
+			txtQuemadores.setText(MenuPrincipal.quemadores1 + "");
+		} else if (modelo == 2) {
+			txtPrecio.setText(MenuPrincipal.precio2 + "");
+			txtAncho.setText(MenuPrincipal.ancho2 + "");
+			txtAlto.setText(MenuPrincipal.alto2 + "");
+			txtFondo.setText(MenuPrincipal.fondo2 + "");
+			txtQuemadores.setText(MenuPrincipal.quemadores2 + "");
+		} else if (modelo == 3) {
+			txtPrecio.setText(MenuPrincipal.precio3 + "");
+			txtAncho.setText(MenuPrincipal.ancho3 + "");
+			txtAlto.setText(MenuPrincipal.alto3 + "");
+			txtFondo.setText(MenuPrincipal.fondo3 + "");
+			txtQuemadores.setText(MenuPrincipal.quemadores3 + "");
+		} else {
+			txtPrecio.setText(MenuPrincipal.precio4 + "");
+			txtAncho.setText(MenuPrincipal.ancho4 + "");
+			txtAlto.setText(MenuPrincipal.alto4 + "");
+			txtFondo.setText(MenuPrincipal.fondo4 + "");
+			txtQuemadores.setText(MenuPrincipal.quemadores4 + "");
+		}
+
 	}
 
 	protected void actionPerformedTxtPrecio(ActionEvent e) {
 
 	}
-}//Fin
+}// Fin
