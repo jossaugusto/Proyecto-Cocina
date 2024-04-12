@@ -21,25 +21,25 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JMenuBar menuBar;
-	private JMenu mnNewMenu;
-	private JMenu mnNewMenu_1;
-	private JMenu mnNewMenu_2;
-	private JMenu mnNewMenu_3;
-	private JMenu mnNewMenu_4;
+	private JMenu mnArchivo;
+	private JMenu mnMantenimiento;
+	private JMenu mnVentas;
+	private JMenu mnConfiguracion;
+	private JMenu mnAyuda;
 	private JMenuItem mntmNewMenuItem;
-	private JMenuItem mntmNewMenuItem_1;
-	private JMenuItem mntmNewMenuItem_2;
+	private JMenuItem mntmConsultarCocina;
+	private JMenuItem mntmModificarCocina;
 	private JSeparator separator;
-	private JMenuItem mntmNewMenuItem_3;
-	private JMenuItem mntmNewMenuItem_4;
+	private JMenuItem mntmListarCocina;
+	private JMenuItem mntmVender;
 	private JSeparator separator_1;
-	private JMenuItem mntmNewMenuItem_5;
-	private JMenuItem mntmNewMenuItem_6;
-	private JMenuItem mntmNewMenuItem_7;
+	private JMenuItem mntmGenerarReportes;
+	private JMenuItem mntmConfigurarDescuentos;
+	private JMenuItem mntmConfigurarObsequios;
 	private JSeparator separator_2;
-	private JMenuItem mntmNewMenuItem_8;
-	private JMenuItem mntmNewMenuItem_9;
-	private JMenuItem mntmNewMenuItem_10;
+	private JMenuItem mntmConfigurarCantidadOptima;
+	private JMenuItem mntmConfigurarCuotaDiaria;
+	private JMenuItem mntmAcercadeTienda;
 
 	// Datos m�nimos de la primera cocina
 	public static String modelo0 = "Mabe EMP6120PG0";
@@ -117,70 +117,70 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
-		mnNewMenu = new JMenu("Archivo");
-		menuBar.add(mnNewMenu);
+		mnArchivo = new JMenu("Archivo");
+		menuBar.add(mnArchivo);
 
 		mntmNewMenuItem = new JMenuItem("Salir del Sistema");
 		mntmNewMenuItem.addActionListener(this);
 		mntmNewMenuItem.setIcon(new ImageIcon("D:\\Descargas\\icons8-fire-exit-16.png"));
 		mntmNewMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK));
-		mnNewMenu.add(mntmNewMenuItem);
+		mnArchivo.add(mntmNewMenuItem);
 
-		mnNewMenu_1 = new JMenu("Mantenimiento");
-		menuBar.add(mnNewMenu_1);
+		mnMantenimiento = new JMenu("Mantenimiento");
+		menuBar.add(mnMantenimiento);
 
-		mntmNewMenuItem_1 = new JMenuItem("Consultar Cocina");
-		mntmNewMenuItem_1.addActionListener(this);
-		mntmNewMenuItem_1.setIcon(new ImageIcon("D:\\Descargas\\icons8-acercar-16.png"));
-		mnNewMenu_1.add(mntmNewMenuItem_1);
+		mntmConsultarCocina = new JMenuItem("Consultar Cocina");
+		mntmConsultarCocina.addActionListener(this);
+		mntmConsultarCocina.setIcon(new ImageIcon("D:\\Descargas\\icons8-acercar-16.png"));
+		mnMantenimiento.add(mntmConsultarCocina);
 
-		mntmNewMenuItem_2 = new JMenuItem("Modificar Cocina");
-		mntmNewMenuItem_2.addActionListener(this);
-		mnNewMenu_1.add(mntmNewMenuItem_2);
+		mntmModificarCocina = new JMenuItem("Modificar Cocina");
+		mntmModificarCocina.addActionListener(this);
+		mnMantenimiento.add(mntmModificarCocina);
 
 		separator = new JSeparator();
-		mnNewMenu_1.add(separator);
+		mnMantenimiento.add(separator);
 
-		mntmNewMenuItem_3 = new JMenuItem("Listar Cocina");
-		mntmNewMenuItem_3.addActionListener(this);
-		mnNewMenu_1.add(mntmNewMenuItem_3);
+		mntmListarCocina = new JMenuItem("Listar Cocina");
+		mntmListarCocina.addActionListener(this);
+		mnMantenimiento.add(mntmListarCocina);
 
-		mnNewMenu_2 = new JMenu("Ventas");
-		menuBar.add(mnNewMenu_2);
+		mnVentas = new JMenu("Ventas");
+		menuBar.add(mnVentas);
 
-		mntmNewMenuItem_4 = new JMenuItem("Vender");
-		mnNewMenu_2.add(mntmNewMenuItem_4);
+		mntmVender = new JMenuItem("Vender");
+		mnVentas.add(mntmVender);
 
 		separator_1 = new JSeparator();
-		mnNewMenu_2.add(separator_1);
+		mnVentas.add(separator_1);
 
-		mntmNewMenuItem_5 = new JMenuItem("Generar Reportes");
-		mnNewMenu_2.add(mntmNewMenuItem_5);
+		mntmGenerarReportes = new JMenuItem("Generar Reportes");
+		mnVentas.add(mntmGenerarReportes);
 
-		mnNewMenu_3 = new JMenu("Configuraci\u00F3n");
-		menuBar.add(mnNewMenu_3);
+		mnConfiguracion = new JMenu("Configuraci\u00F3n");
+		menuBar.add(mnConfiguracion);
 
-		mntmNewMenuItem_6 = new JMenuItem("Configurar Descuentos");
-		mnNewMenu_3.add(mntmNewMenuItem_6);
+		mntmConfigurarDescuentos = new JMenuItem("Configurar Descuentos");
+		mnConfiguracion.add(mntmConfigurarDescuentos);
 
-		mntmNewMenuItem_7 = new JMenuItem("Configurar Obsequios");
-		mnNewMenu_3.add(mntmNewMenuItem_7);
+		mntmConfigurarObsequios = new JMenuItem("Configurar Obsequios");
+		mnConfiguracion.add(mntmConfigurarObsequios);
 
 		separator_2 = new JSeparator();
-		mnNewMenu_3.add(separator_2);
+		mnConfiguracion.add(separator_2);
 
-		mntmNewMenuItem_8 = new JMenuItem("Configurar Cantidad \u00D3ptima");
-		mnNewMenu_3.add(mntmNewMenuItem_8);
+		mntmConfigurarCantidadOptima = new JMenuItem("Configurar Cantidad \u00D3ptima");
+		mnConfiguracion.add(mntmConfigurarCantidadOptima);
 
-		mntmNewMenuItem_9 = new JMenuItem("Configurar Cuota Diaria");
-		mnNewMenu_3.add(mntmNewMenuItem_9);
+		mntmConfigurarCuotaDiaria = new JMenuItem("Configurar Cuota Diaria");
+		mnConfiguracion.add(mntmConfigurarCuotaDiaria);
 
-		mnNewMenu_4 = new JMenu("Ayuda");
-		menuBar.add(mnNewMenu_4);
+		mnAyuda = new JMenu("Ayuda");
+		menuBar.add(mnAyuda);
 
-		mntmNewMenuItem_10 = new JMenuItem("Acerca de Tienda");
-		mntmNewMenuItem_10.addActionListener(this);
-		mnNewMenu_4.add(mntmNewMenuItem_10);
+		mntmAcercadeTienda = new JMenuItem("Acerca de Tienda");
+		mntmAcercadeTienda.addActionListener(this);
+		mnAyuda.add(mntmAcercadeTienda);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -189,19 +189,19 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == mntmNewMenuItem_2) {
+		if (e.getSource() == mntmModificarCocina) {
 			actionPerformedMntmNewMenuItem_2(e);
 		}
-		if (e.getSource() == mntmNewMenuItem_1) {
+		if (e.getSource() == mntmConsultarCocina) {
 			actionPerformedMntmNewMenuItem_1(e);
 		}
 		if (e.getSource() == mntmNewMenuItem) {
 			actionPerformedMntmNewMenuItem(e);
 		}
-		if (e.getSource() == mntmNewMenuItem_10) {
+		if (e.getSource() == mntmAcercadeTienda) {
 			actionPerformedMntmNewMenuItem_10(e);
 		}
-		if (e.getSource() == mntmNewMenuItem_3) {
+		if (e.getSource() == mntmListarCocina) {
 			actionPerformedMntmNewMenuItem_3(e);
 		}
 	}
