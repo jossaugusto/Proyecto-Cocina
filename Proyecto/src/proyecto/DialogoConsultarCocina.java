@@ -29,7 +29,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 	private JTextField txtAlto;
 	private JTextField txtFondo;
 	private JTextField txtQuemadores;
-	private JButton btnBorrar;
+	private JButton btnCerrar;
 
 	/**
 	 * Launch the application.
@@ -78,8 +78,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 
 		cboModelo = new JComboBox();
 		cboModelo.addActionListener(this);
-		cboModelo.setModel(new DefaultComboBoxModel(
-				new String[] { "Mabe EMP6120PG0", "Indurama Parma", "Coldex CX602", "Sole COSOL027", "Reco Dakota" }));
+		cboModelo.setModel(new DefaultComboBoxModel(new String[] { "Mabe EMP6120PG0", "Indurama Parma", "Coldex CX602", "Sole COSOL027", "Reco Dakota" }));
 		cboModelo.setBounds(103, 17, 131, 22);
 		getContentPane().add(cboModelo);
 
@@ -109,9 +108,9 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		getContentPane().add(txtQuemadores);
 		txtQuemadores.setColumns(10);
 
-		btnBorrar = new JButton("Borrar");
-		btnBorrar.setBounds(316, 17, 89, 23);
-		getContentPane().add(btnBorrar);
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBounds(316, 17, 89, 23);
+		getContentPane().add(btnCerrar);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -125,10 +124,43 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 
 	protected void actionPerformedCboModelo(ActionEvent e) {
 
-		//codigo de consultar cocina
+		int modeloCC = cboModelo.getSelectedIndex();
+
+		if (modeloCC == 0) {
+			txtPrecio.setText(MenuPrincipal.precio0 + "");
+			txtAncho.setText(MenuPrincipal.ancho0 + "");
+			txtAlto.setText(MenuPrincipal.alto0 + "");
+			txtFondo.setText(MenuPrincipal.fondo0 + "");
+			txtQuemadores.setText(MenuPrincipal.quemadores0 + "");
+		} else if (modeloCC == 1) {
+			txtPrecio.setText(MenuPrincipal.precio1 + "");
+			txtAncho.setText(MenuPrincipal.ancho1 + "");
+			txtAlto.setText(MenuPrincipal.alto1 + "");
+			txtFondo.setText(MenuPrincipal.fondo1 + "");
+			txtQuemadores.setText(MenuPrincipal.quemadores1 + "");
+		} else if (modeloCC == 2) {
+			txtPrecio.setText(MenuPrincipal.precio2 + "");
+			txtAncho.setText(MenuPrincipal.ancho2 + "");
+			txtAlto.setText(MenuPrincipal.alto2 + "");
+			txtFondo.setText(MenuPrincipal.fondo2 + "");
+			txtQuemadores.setText(MenuPrincipal.quemadores2 + "");
+		} else if (modeloCC == 3) {
+			txtPrecio.setText(MenuPrincipal.precio3 + "");
+			txtAncho.setText(MenuPrincipal.ancho3 + "");
+			txtAlto.setText(MenuPrincipal.alto3 + "");
+			txtFondo.setText(MenuPrincipal.fondo3 + "");
+			txtQuemadores.setText(MenuPrincipal.quemadores3 + "");
+		} else {
+			txtPrecio.setText(MenuPrincipal.precio4 + "");
+			txtAncho.setText(MenuPrincipal.ancho4 + "");
+			txtAlto.setText(MenuPrincipal.alto4 + "");
+			txtFondo.setText(MenuPrincipal.fondo4 + "");
+			txtQuemadores.setText(MenuPrincipal.quemadores4 + "");
+		}
+
 	}
 
 	protected void actionPerformedTxtPrecio(ActionEvent e) {
 
 	}
-}//Fin
+}// Fin

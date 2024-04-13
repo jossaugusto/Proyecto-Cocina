@@ -13,6 +13,12 @@ import java.awt.Font;
 import javax.swing.UIManager;
 import javax.swing.event.CaretListener;
 import javax.swing.event.CaretEvent;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
+import javax.swing.border.BevelBorder;
+import java.awt.Cursor;
+import javax.swing.ScrollPaneConstants;
+import java.awt.Toolkit;
 
 public class DialogoListar extends JDialog implements ActionListener, CaretListener {
 
@@ -49,33 +55,55 @@ public class DialogoListar extends JDialog implements ActionListener, CaretListe
 	 * Create the dialog.
 	 */
 	public DialogoListar() {
-		setTitle("Listar");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DialogoListar.class.getResource("/Imagenes/iconoEscudo.png")));
+		setBackground(new Color(255, 255, 255));
+		getContentPane().setBackground(new Color(0, 179, 179));
+		setTitle("Listado de Cocinas");
 		setBounds(100, 100, 466, 321);
 		getContentPane().setLayout(null);
 
 		scrollPane = new JScrollPane();
+		scrollPane.setFont(new Font("Roboto", Font.PLAIN, 11));
+		scrollPane.setBackground(Color.WHITE);
+		scrollPane.setBorder(new LineBorder(new Color(130, 135, 144), 2));
 		scrollPane.setBounds(10, 11, 430, 226);
 		getContentPane().add(scrollPane);
 
 		txtS = new JTextArea();
+		txtS.setSelectionColor(new Color(192, 192, 192));
+		txtS.setBackground(Color.WHITE);
+		txtS.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(192, 192, 192), new Color(192, 192, 192), new Color(192, 192, 192), new Color(192, 192, 192)));
 		txtS.addCaretListener(this);
-		txtS.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		txtS.setFont(new Font("Roboto", Font.PLAIN, 12));
 		scrollPane.setViewportView(txtS);
 
 		panel = new JPanel();
-		panel.setBounds(131, 248, 188, 23);
+		panel.setBackground(new Color(0, 179, 179));
+		panel.setBounds(136, 248, 188, 23);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-
-		btnCerrar = new JButton("Cerrar");
-		btnCerrar.setBounds(99, 0, 89, 23);
-		panel.add(btnCerrar);
-
-		btnListar = new JButton("Listar");
-		btnListar.addActionListener(this);
-		btnListar.setBounds(0, 0, 89, 23);
-		panel.add(btnListar);
-		btnCerrar.addActionListener(this);
+		
+				btnCerrar = new JButton("Cerrar");
+				btnCerrar.setContentAreaFilled(false);
+				btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				btnCerrar.setForeground(new Color(255, 255, 255));
+				btnCerrar.setBorder(new LineBorder(new Color(192, 192, 192), 3, true));
+				btnCerrar.setFont(new Font("Roboto", Font.PLAIN, 14));
+				btnCerrar.setBackground(new Color(69, 197, 207));
+				btnCerrar.setBounds(99, 0, 89, 23);
+				panel.add(btnCerrar);
+				
+						btnListar = new JButton("Listar");
+						btnListar.setFont(new Font("Roboto", Font.PLAIN, 14));
+						btnListar.setForeground(new Color(255, 255, 255));
+						btnListar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnListar.setContentAreaFilled(false);
+						btnListar.setBorder(new LineBorder(new Color(192, 192, 192), 3, true));
+						btnListar.setBackground(new Color(69, 197, 207));
+						btnListar.setBounds(0, 0, 89, 23);
+						panel.add(btnListar);
+						btnListar.addActionListener(this);
+				btnCerrar.addActionListener(this);
 
 	}
 
