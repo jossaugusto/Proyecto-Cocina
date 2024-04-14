@@ -19,6 +19,9 @@ import javax.swing.border.BevelBorder;
 import java.awt.Cursor;
 import javax.swing.ScrollPaneConstants;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import java.awt.Dimension;
+import javax.swing.SwingConstants;
 
 public class DialogoListar extends JDialog implements ActionListener, CaretListener {
 
@@ -27,7 +30,6 @@ public class DialogoListar extends JDialog implements ActionListener, CaretListe
 	private JTextArea txtS;
 	private JButton btnCerrar;
 	private JButton btnListar;
-	private JPanel panel;
 
 	/**
 	 * Launch the application.
@@ -55,9 +57,10 @@ public class DialogoListar extends JDialog implements ActionListener, CaretListe
 	 * Create the dialog.
 	 */
 	public DialogoListar() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(DialogoListar.class.getResource("/Imagenes/iconoEscudo.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(DialogoListar.class.getResource("/Imagenes/iconoEscudo.png")));
 		setBackground(new Color(255, 255, 255));
-		getContentPane().setBackground(new Color(0, 179, 179));
+		getContentPane().setBackground(new Color(119, 203, 210));
 		setTitle("Listado de Cocinas");
 		setBounds(100, 100, 466, 321);
 		getContentPane().setLayout(null);
@@ -70,40 +73,52 @@ public class DialogoListar extends JDialog implements ActionListener, CaretListe
 		getContentPane().add(scrollPane);
 
 		txtS = new JTextArea();
-		txtS.setSelectionColor(new Color(192, 192, 192));
+		txtS.setDisabledTextColor(new Color(255, 255, 176));
+		txtS.setSelectionColor(new Color(255, 255, 176));
 		txtS.setBackground(Color.WHITE);
-		txtS.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(192, 192, 192), new Color(192, 192, 192), new Color(192, 192, 192), new Color(192, 192, 192)));
+		txtS.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(192, 192, 192), new Color(192, 192, 192),
+				new Color(192, 192, 192), new Color(192, 192, 192)));
 		txtS.addCaretListener(this);
 		txtS.setFont(new Font("Roboto", Font.PLAIN, 12));
 		scrollPane.setViewportView(txtS);
-
-		panel = new JPanel();
-		panel.setBackground(new Color(0, 179, 179));
-		panel.setBounds(136, 248, 188, 23);
-		getContentPane().add(panel);
-		panel.setLayout(null);
 		
-				btnCerrar = new JButton("Cerrar");
-				btnCerrar.setContentAreaFilled(false);
-				btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				btnCerrar.setForeground(new Color(255, 255, 255));
-				btnCerrar.setBorder(new LineBorder(new Color(192, 192, 192), 3, true));
-				btnCerrar.setFont(new Font("Roboto", Font.PLAIN, 14));
-				btnCerrar.setBackground(new Color(69, 197, 207));
-				btnCerrar.setBounds(99, 0, 89, 23);
-				panel.add(btnCerrar);
+				btnListar = new JButton("");
+				btnListar.setVerticalAlignment(SwingConstants.TOP);
+				btnListar.setHorizontalTextPosition(SwingConstants.LEFT);
+				btnListar.setVerticalTextPosition(SwingConstants.BOTTOM);
+				btnListar.setRolloverIcon(new ImageIcon(DialogoListar.class.getResource("/Imagenes/Listar48png.png")));
+				btnListar.setPressedIcon(new ImageIcon(DialogoListar.class.getResource("/Imagenes/Listar32.png")));
+				btnListar.setIcon(new ImageIcon(DialogoListar.class.getResource("/Imagenes/Listar32.png")));
+				btnListar.setRequestFocusEnabled(false);
+				btnListar.setBorderPainted(false);
+				btnListar.setBounds(118, 237, 89, 45);
+				getContentPane().add(btnListar);
+				btnListar.setFont(new Font("Roboto", Font.PLAIN, 14));
+				btnListar.setForeground(new Color(255, 255, 255));
+				btnListar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				btnListar.setContentAreaFilled(false);
+				btnListar.setBorder(null);
+				btnListar.setBackground(new Color(255, 255, 255));
 				
-						btnListar = new JButton("Listar");
-						btnListar.setFont(new Font("Roboto", Font.PLAIN, 14));
-						btnListar.setForeground(new Color(255, 255, 255));
-						btnListar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnListar.setContentAreaFilled(false);
-						btnListar.setBorder(new LineBorder(new Color(192, 192, 192), 3, true));
-						btnListar.setBackground(new Color(69, 197, 207));
-						btnListar.setBounds(0, 0, 89, 23);
-						panel.add(btnListar);
-						btnListar.addActionListener(this);
-				btnCerrar.addActionListener(this);
+						btnCerrar = new JButton("");
+						btnCerrar.setHorizontalAlignment(SwingConstants.LEFT);
+						btnCerrar.setBorderPainted(false);
+						btnCerrar.setIcon(new ImageIcon(DialogoListar.class.getResource("/Imagenes/salir32.png")));
+						btnCerrar.setRolloverIcon(new ImageIcon(DialogoListar.class.getResource("/Imagenes/salir48.png")));
+						btnCerrar.setPressedIcon(new ImageIcon(DialogoListar.class.getResource("/Imagenes/salir32.png")));
+						btnCerrar.setRequestFocusEnabled(false);
+						btnCerrar.setVerticalAlignment(SwingConstants.TOP);
+						btnCerrar.setVerticalTextPosition(SwingConstants.BOTTOM);
+						btnCerrar.setBounds(233, 237, 68, 45);
+						getContentPane().add(btnCerrar);
+						btnCerrar.setContentAreaFilled(false);
+						btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnCerrar.setForeground(new Color(255, 255, 255));
+						btnCerrar.setBorder(null);
+						btnCerrar.setFont(new Font("Roboto", Font.PLAIN, 14));
+						btnCerrar.setBackground(new Color(255, 255, 255));
+						btnCerrar.addActionListener(this);
+		btnListar.addActionListener(this);
 
 	}
 
@@ -157,9 +172,8 @@ public class DialogoListar extends JDialog implements ActionListener, CaretListe
 		txtS.append("Fondo      : " + MenuPrincipal.fondo4 + "\n");
 		txtS.append("Ancho      : " + MenuPrincipal.ancho4 + "\n");
 		txtS.append("Alto       : " + MenuPrincipal.alto4 + "\n");
-		txtS.append("Quemadores : " + MenuPrincipal.quemadores4 + "\n\n");
+		txtS.append("Quemadores : " + MenuPrincipal.quemadores4);
 
-			//hola mundo hola tierrra
 	}
 
 	public void caretUpdate(CaretEvent e) {
