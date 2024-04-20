@@ -65,50 +65,53 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 				.getImage(DialogoConsultarCocina.class.getResource("/Imagenes/iconoEscudo.png")));
 		getContentPane().setForeground(new Color(255, 255, 255));
 		setBackground(new Color(255, 255, 255));
-		getContentPane().setBackground(new Color(119, 203, 210));
+		getContentPane().setBackground(new Color(128, 128, 128));
 		setTitle("Consultar Cocina");
 		setBounds(100, 100, 450, 224);
 		getContentPane().setLayout(null);
 
 		lblModelo = new JLabel("Modelo");
-		lblModelo.setForeground(new Color(255, 255, 176));
+		lblModelo.setBackground(new Color(255, 255, 255));
+		lblModelo.setForeground(new Color(0, 0, 0));
 		lblModelo.setBounds(21, 21, 46, 14);
 		lblModelo.setFont(new Font("Roboto", Font.PLAIN, 13));
 		getContentPane().add(lblModelo);
 
 		lblPrecio = new JLabel("Precio (S/)");
-		lblPrecio.setForeground(new Color(255, 255, 176));
+		lblPrecio.setBackground(new Color(255, 255, 255));
+		lblPrecio.setForeground(new Color(0, 0, 0));
 		lblPrecio.setBounds(21, 46, 71, 14);
 		lblPrecio.setFont(new Font("Roboto", Font.PLAIN, 13));
 		getContentPane().add(lblPrecio);
 
 		lblAncho = new JLabel("Ancho(cm)");
-		lblAncho.setForeground(new Color(255, 255, 176));
+		lblAncho.setForeground(new Color(0, 0, 0));
 		lblAncho.setBounds(21, 71, 71, 14);
 		lblAncho.setFont(new Font("Roboto", Font.PLAIN, 13));
 		getContentPane().add(lblAncho);
 
 		lblAlto = new JLabel("Alto (cm)");
-		lblAlto.setForeground(new Color(255, 255, 176));
+		lblAlto.setForeground(new Color(0, 0, 0));
 		lblAlto.setBounds(21, 96, 71, 14);
 		lblAlto.setFont(new Font("Roboto", Font.PLAIN, 13));
 		getContentPane().add(lblAlto);
 
 		lblFondo = new JLabel("Fondo(cm)");
-		lblFondo.setForeground(new Color(255, 255, 176));
+		lblFondo.setForeground(new Color(0, 0, 0));
 		lblFondo.setBounds(21, 121, 71, 14);
 		lblFondo.setFont(new Font("Roboto", Font.PLAIN, 13));
 		getContentPane().add(lblFondo);
 
 		lblQuemadores = new JLabel("Quemadores");
-		lblQuemadores.setForeground(new Color(255, 255, 176));
+		lblQuemadores.setForeground(new Color(0, 0, 0));
 		lblQuemadores.setBounds(21, 146, 76, 14);
 		lblQuemadores.setFont(new Font("Roboto", Font.PLAIN, 13));
 		getContentPane().add(lblQuemadores);
 
 		cboModelo = new JComboBox();
+		cboModelo.setForeground(new Color(0, 0, 0));
 		cboModelo.setBorder(null);
-		cboModelo.setBackground(new Color(255, 255, 255));
+		cboModelo.setBackground(new Color(207, 207, 207));
 		cboModelo.setFont(new Font("Roboto", Font.PLAIN, 12));
 		cboModelo.setBounds(103, 17, 131, 22);
 		cboModelo.addActionListener(this);
