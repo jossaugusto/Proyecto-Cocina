@@ -13,13 +13,19 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
 
-public class DialogoVender1 extends JDialog {
+public class DialogoVender1 extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField txtPrecio;
 	private JTextField txtCantidad;
-
+	private JButton btnVender;
+    private JComboBox cbomodelo;
+    private JTextField txtS;
+   
 	/**
 	 * Launch the application.
 	 */
@@ -55,25 +61,27 @@ public class DialogoVender1 extends JDialog {
 			getContentPane().add(lblCantidad);
 		}
 		{
-			JComboBox cboModelo = new JComboBox();
+			JComboBox cboModelo =new JComboBox();
+			cboModelo.setFont(new Font("Dialog", Font.PLAIN, 12));
 			cboModelo.setModel(new DefaultComboBoxModel(new String[] {"Mabe EMP6120PG0", "Indurama Parma", "Sole COSOL027", "Coldex CX602", "Reco Dakota"}));
-			cboModelo.setBounds(79, 11, 124, 22);
+			cboModelo.setBounds(79, 11, 138, 22);
 			getContentPane().add(cboModelo);
 		}
 		{
 			txtPrecio = new JTextField();
 			txtPrecio.setColumns(10);
-			txtPrecio.setBounds(79, 37, 124, 20);
+			txtPrecio.setBounds(79, 37, 138, 20);
 			getContentPane().add(txtPrecio);
 		}
 		{
 			txtCantidad = new JTextField();
 			txtCantidad.setColumns(10);
-			txtCantidad.setBounds(79, 69, 124, 20);
+			txtCantidad.setBounds(79, 69, 138, 20);
 			getContentPane().add(txtCantidad);
 		}
 		{
-			JButton btnVender = new JButton("Vender");
+			btnVender = new JButton("Vender");
+			btnVender.addActionListener(this);
 			btnVender.setBounds(315, 11, 89, 23);
 			getContentPane().add(btnVender);
 		}
@@ -93,4 +101,72 @@ public class DialogoVender1 extends JDialog {
 		}
 	}
 
-}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnVender) {
+			actionPerformedBtnVender(e);
+		}
+	}
+	protected void actionPerformedBtnVender(ActionEvent e) {
+	
+	double impC=0,impD=0,impP,precio;
+	int cantidad,modelo;
+	String regalo;
+	
+	
+	cantidad=Integer.parseInt(txtCantidad.getText());
+    modelo=cbomodelo.getSelectedIndex();
+    
+    if(modelo==0)
+    	precio=949.00;
+    else if(modelo==1)
+    	precio=1089.00;
+    else if(modelo==2)
+    	precio=850.00;  
+    else
+    	precio=629.00;
+    impC=precio * cantidad;
+    		
+   
+    
+    
+    if(cantidad>1 && cantidad<=5)
+    	impD=0.01 *impC;
+    else if(cantidad>6 && cantidad>=10)
+    	impD=0.02 *impC;
+    else if (cantidad>11 && cantidad>=15)
+    	impD=0.03 * cantidad;
+    else
+    	impD=0.04 *cantidad;
+    
+    impP=impC - impD;
+    
+    if(cantidad==1)
+     regalo=MenuPrincipal.obsequio1;
+    else if(cantidad>=2 && cantidad<=5)
+    	regalo=MenuPrincipal.obsequio2;
+    else
+    	regalo=MenuPrincipal.obsequio3;
+    
+    txtS.setText("Boleta de venta \n\n");
+    txtS.append("importe de compra\t: " + String.format("%,12.2f",impC)+ "\n");
+   
+   
+   
+    
+    
+    
+    	
+    
+    
+			
+	
+	
+	
+	
+		
+		
+		
+	
+	
+	}
+}//fin
