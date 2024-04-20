@@ -53,4 +53,4 @@ public class DialogoAcercadeTienda extends JDialog {
 		}
 	}
 
-}//fin
+}//find
