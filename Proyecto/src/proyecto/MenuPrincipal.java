@@ -149,12 +149,14 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		menuBar.add(mnVentas);
 
 		mntmVender = new JMenuItem("Vender");
+		mntmVender.addActionListener(this);
 		mnVentas.add(mntmVender);
 
 		separator_1 = new JSeparator();
 		mnVentas.add(separator_1);
 
 		mntmGenerarReportes = new JMenuItem("Generar Reportes");
+		mntmGenerarReportes.addActionListener(this);
 		mnVentas.add(mntmGenerarReportes);
 
 		mnConfiguracion = new JMenu("Configuraci\u00F3n");
@@ -189,6 +191,12 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mntmGenerarReportes) {
+			actionPerformedMntmGenerarReportes(e);
+		}
+		if (e.getSource() == mntmVender) {
+			actionPerformedMntmVender(e);
+		}
 		if (e.getSource() == mntmModificarCocina) {
 			actionPerformedMntmNewMenuItem_2(e);
 		}
@@ -241,6 +249,24 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		DialogoModificarCocina diamod = new DialogoModificarCocina();
 		diamod.setLocationRelativeTo(this);
 		diamod.setVisible(true);
+
+	}
+
+	protected void actionPerformedMntmVender(ActionEvent e) {
+
+		DialogoVender1 diaved = new DialogoVender1();
+
+		diaved.setLocationRelativeTo(this);
+		diaved.setVisible(true);
+
+	}
+
+	protected void actionPerformedMntmGenerarReportes(ActionEvent e) {
+
+		DialogoGenerarReportes diagere = new DialogoGenerarReportes();
+
+		diagere.setLocationRelativeTo(this);
+		diagere.setVisible(true);
 
 	}
 }// FIN
