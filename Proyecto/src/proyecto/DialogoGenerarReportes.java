@@ -14,6 +14,8 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
+import java.awt.Cursor;
 
 public class DialogoGenerarReportes extends JDialog implements ActionListener {
 
@@ -37,10 +39,12 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DialogoGenerarReportes() {
+		getContentPane().setBackground(new Color(192, 192, 192));
 		setBounds(100, 100, 549, 252);
 		getContentPane().setLayout(null);
 		{
 			JLabel lblTipodeReporte = new JLabel("Tipo de Reporte");
+			lblTipodeReporte.setForeground(new Color(0, 0, 0));
 			lblTipodeReporte.setBounds(10, 11, 98, 14);
 			getContentPane().add(lblTipodeReporte);
 		}
@@ -52,6 +56,7 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener {
 		}
 		{
 			btnCerrar = new JButton("Cerrar");
+			btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			btnCerrar.addActionListener(this);
 			btnCerrar.setBounds(409, 7, 89, 23);
 			getContentPane().add(btnCerrar);

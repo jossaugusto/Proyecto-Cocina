@@ -29,9 +29,9 @@ public class DialogoModificarCocina extends JDialog implements ActionListener {
 	private JTextField txtAlto;
 	private JTextField txtFondo;
 	private JTextField txtQuemadores;
-	private JButton btnGrabrar;
 	private JComboBox cboModelo;
 	private JButton btnCerrar;
+	private JButton btnGrabar;
 
 	/**
 	 * Launch the application.
@@ -52,21 +52,21 @@ public class DialogoModificarCocina extends JDialog implements ActionListener {
 	public DialogoModificarCocina() {
 		setBackground(new Color(240, 240, 240));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(DialogoModificarCocina.class.getResource("/Imagenes/iconoEscudo.png")));
-		getContentPane().setBackground(new Color(119, 203, 210));
+		getContentPane().setBackground(new Color(192, 192, 192));
 		setTitle("Modificar Cocina");
 		setBounds(100, 100, 450, 208);
 		getContentPane().setLayout(null);
 		{
 			JLabel lblModelo = new JLabel("Modelo");
 			lblModelo.setBackground(new Color(255, 255, 255));
-			lblModelo.setForeground(new Color(255, 255, 176));
+			lblModelo.setForeground(new Color(0, 0, 0));
 			lblModelo.setFont(new Font("Roboto", Font.PLAIN, 13));
 			lblModelo.setBounds(10, 15, 46, 14);
 			getContentPane().add(lblModelo);
 		}
 		{
 			JLabel lblPrecio = new JLabel("Precio (S/)");
-			lblPrecio.setForeground(new Color(255, 255, 176));
+			lblPrecio.setForeground(new Color(0, 0, 0));
 			lblPrecio.setFont(new Font("Roboto", Font.PLAIN, 13));
 			lblPrecio.setBounds(10, 40, 72, 14);
 			getContentPane().add(lblPrecio);
@@ -74,13 +74,13 @@ public class DialogoModificarCocina extends JDialog implements ActionListener {
 		{
 			JLabel lblAncho = new JLabel("Ancho (cm)");
 			lblAncho.setFont(new Font("Roboto", Font.PLAIN, 13));
-			lblAncho.setForeground(new Color(255, 255, 176));
+			lblAncho.setForeground(new Color(0, 0, 0));
 			lblAncho.setBounds(10, 65, 72, 14);
 			getContentPane().add(lblAncho);
 		}
 		{
 			JLabel lblAlto = new JLabel("Alto (cm)");
-			lblAlto.setForeground(new Color(255, 255, 176));
+			lblAlto.setForeground(new Color(0, 0, 0));
 			lblAlto.setFont(new Font("Roboto", Font.PLAIN, 13));
 			lblAlto.setBounds(10, 90, 72, 14);
 			getContentPane().add(lblAlto);
@@ -88,13 +88,13 @@ public class DialogoModificarCocina extends JDialog implements ActionListener {
 		{
 			JLabel lblFondo = new JLabel("Fondo (cm)");
 			lblFondo.setFont(new Font("Roboto", Font.PLAIN, 13));
-			lblFondo.setForeground(new Color(255, 255, 176));
+			lblFondo.setForeground(new Color(0, 0, 0));
 			lblFondo.setBounds(10, 115, 72, 14);
 			getContentPane().add(lblFondo);
 		}
 		{
 			JLabel lblQuemadores = new JLabel("Quemadores");
-			lblQuemadores.setForeground(new Color(255, 255, 176));
+			lblQuemadores.setForeground(new Color(0, 0, 0));
 			lblQuemadores.setFont(new Font("Roboto", Font.PLAIN, 13));
 			lblQuemadores.setBounds(10, 140, 81, 14);
 			getContentPane().add(lblQuemadores);
@@ -111,7 +111,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener {
 		{
 			txtPrecio = new JTextField();
 			txtPrecio.setFont(new Font("Roboto", Font.PLAIN, 12));
-			txtPrecio.setHorizontalAlignment(SwingConstants.CENTER);
+			txtPrecio.setHorizontalAlignment(SwingConstants.LEFT);
 			txtPrecio.setBorder(null);
 			txtPrecio.setBounds(92, 37, 118, 20);
 			getContentPane().add(txtPrecio);
@@ -119,7 +119,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener {
 		}
 		{
 			txtAncho = new JTextField();
-			txtAncho.setHorizontalAlignment(SwingConstants.CENTER);
+			txtAncho.setHorizontalAlignment(SwingConstants.LEFT);
 			txtAncho.setFont(new Font("Roboto", Font.PLAIN, 12));
 			txtAncho.setBorder(null);
 			txtAncho.setBounds(92, 62, 118, 20);
@@ -128,7 +128,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener {
 		}
 		{
 			txtAlto = new JTextField();
-			txtAlto.setHorizontalAlignment(SwingConstants.CENTER);
+			txtAlto.setHorizontalAlignment(SwingConstants.LEFT);
 			txtAlto.setFont(new Font("Roboto", Font.PLAIN, 12));
 			txtAlto.setBorder(null);
 			txtAlto.setBounds(92, 87, 118, 20);
@@ -137,7 +137,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener {
 		}
 		{
 			txtFondo = new JTextField();
-			txtFondo.setHorizontalAlignment(SwingConstants.CENTER);
+			txtFondo.setHorizontalAlignment(SwingConstants.LEFT);
 			txtFondo.setFont(new Font("Roboto", Font.PLAIN, 12));
 			txtFondo.setBorder(null);
 			txtFondo.setBounds(92, 112, 118, 20);
@@ -146,7 +146,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener {
 		}
 		{
 			txtQuemadores = new JTextField();
-			txtQuemadores.setHorizontalAlignment(SwingConstants.CENTER);
+			txtQuemadores.setHorizontalAlignment(SwingConstants.LEFT);
 			txtQuemadores.setFont(new Font("Roboto", Font.PLAIN, 12));
 			txtQuemadores.setBorder(null);
 			txtQuemadores.setBounds(92, 137, 118, 20);
@@ -154,53 +154,27 @@ public class DialogoModificarCocina extends JDialog implements ActionListener {
 			txtQuemadores.setColumns(10);
 		}
 		{
-			btnCerrar = new JButton("");
-			btnCerrar.addActionListener(this);
-			btnCerrar.setContentAreaFilled(false);
-			btnCerrar.setHorizontalAlignment(SwingConstants.LEFT);
-			btnCerrar.setVerticalTextPosition(SwingConstants.BOTTOM);
-			btnCerrar.setHorizontalTextPosition(SwingConstants.CENTER);
-			btnCerrar.setRequestFocusEnabled(false);
-			btnCerrar.setRolloverIcon(new ImageIcon(DialogoModificarCocina.class.getResource("/Imagenes/salir48.png")));
-			btnCerrar.setPressedIcon(new ImageIcon(DialogoModificarCocina.class.getResource("/Imagenes/salir32.png")));
-			btnCerrar.setBorderPainted(false);
-			btnCerrar.setIcon(new ImageIcon(DialogoModificarCocina.class.getResource("/Imagenes/salir32.png")));
-			btnCerrar.setForeground(new Color(255, 255, 255));
-			btnCerrar.setBackground(new Color(255, 255, 255));
-			btnCerrar.setBorder(null);
-			btnCerrar.setOpaque(false);
+			btnCerrar = new JButton("Cerrar");
 			btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			btnCerrar.setFont(new Font("Roboto", Font.PLAIN, 14));
-			btnCerrar.setBounds(362, 11, 62, 99);
+			btnCerrar.addActionListener(this);
+			btnCerrar.setBounds(335, 15, 89, 23);
 			getContentPane().add(btnCerrar);
 		}
-
-		btnGrabrar = new JButton("");
-		btnGrabrar.setHorizontalAlignment(SwingConstants.LEFT);
-		btnGrabrar.setContentAreaFilled(false);
-		btnGrabrar.setRolloverIcon(new ImageIcon(DialogoModificarCocina.class.getResource("/Imagenes/guardar48.png")));
-		btnGrabrar.setPressedIcon(new ImageIcon(DialogoModificarCocina.class.getResource("/Imagenes/guardar32.png")));
-		btnGrabrar.setIcon(new ImageIcon(DialogoModificarCocina.class.getResource("/Imagenes/guardar32.png")));
-		btnGrabrar.setBorderPainted(false);
-		btnGrabrar.setRequestFocusEnabled(false);
-		btnGrabrar.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnGrabrar.setFont(new Font("Roboto", Font.PLAIN, 14));
-		btnGrabrar.setForeground(new Color(255, 255, 255));
-		btnGrabrar.setBorder(null);
-		btnGrabrar.setBackground(new Color(255, 255, 255));
-		btnGrabrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnGrabrar.setOpaque(false);
-		btnGrabrar.addActionListener(this);
-		btnGrabrar.setBounds(290, 11, 62, 99);
-		getContentPane().add(btnGrabrar);
+		{
+			btnGrabar = new JButton("Grabar");
+			btnGrabar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			btnGrabar.addActionListener(this);
+			btnGrabar.setBounds(335, 40, 89, 23);
+			getContentPane().add(btnGrabar);
+		}
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnGrabar) {
+			actionPerformedBtnGrabar(e);
+		}
 		if (e.getSource() == btnCerrar) {
 			actionPerformedBtnCerrar(e);
-		}
-		if (e.getSource() == btnGrabrar) {
-			actionPerformedBtnGrabrar(e);
 		}
 		if (e.getSource() == cboModelo) {
 			actionPerformedCboModelo(e);
@@ -244,12 +218,10 @@ public class DialogoModificarCocina extends JDialog implements ActionListener {
 		}
 
 	}
-
-	protected void actionPerformedBtnGrabrar(ActionEvent e) {
-
-	}
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 	
 		dispose();
+	}
+	protected void actionPerformedBtnGrabar(ActionEvent e) {
 	}
 }// Fin

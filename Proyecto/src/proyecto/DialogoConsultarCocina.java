@@ -42,7 +42,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 	private JTextField txtAlto;
 	private JTextField txtFondo;
 	private JTextField txtQuemadores;
-	private JButton btnBorrar;
+	private JButton btnCerrar;
 
 	/**
 	 * Launch the application.
@@ -65,7 +65,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 				.getImage(DialogoConsultarCocina.class.getResource("/Imagenes/iconoEscudo.png")));
 		getContentPane().setForeground(new Color(255, 255, 255));
 		setBackground(new Color(255, 255, 255));
-		getContentPane().setBackground(new Color(128, 128, 128));
+		getContentPane().setBackground(new Color(192, 192, 192));
 		setTitle("Consultar Cocina");
 		setBounds(100, 100, 450, 224);
 		getContentPane().setLayout(null);
@@ -122,7 +122,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		txtPrecio = new JTextField();
 		txtPrecio.setForeground(new Color(0, 0, 0));
 		txtPrecio.setSelectionColor(new Color(0, 128, 255));
-		txtPrecio.setHorizontalAlignment(SwingConstants.CENTER);
+		txtPrecio.setHorizontalAlignment(SwingConstants.LEFT);
 		txtPrecio.setEditable(false);
 		txtPrecio.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		txtPrecio.setBorder(null);
@@ -133,7 +133,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		txtPrecio.setColumns(10);
 
 		txtAncho = new JTextField();
-		txtAncho.setHorizontalAlignment(SwingConstants.CENTER);
+		txtAncho.setHorizontalAlignment(SwingConstants.LEFT);
 		txtAncho.setEditable(false);
 		txtAncho.setBorder(null);
 		txtAncho.setFont(new Font("Roboto", Font.PLAIN, 12));
@@ -143,7 +143,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 
 		txtAlto = new JTextField();
 		txtAlto.setEditable(false);
-		txtAlto.setHorizontalAlignment(SwingConstants.CENTER);
+		txtAlto.setHorizontalAlignment(SwingConstants.LEFT);
 		txtAlto.setBorder(null);
 		txtAlto.setFont(new Font("Roboto", Font.PLAIN, 12));
 		txtAlto.setBounds(103, 93, 131, 20);
@@ -151,7 +151,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		txtAlto.setColumns(10);
 
 		txtFondo = new JTextField();
-		txtFondo.setHorizontalAlignment(SwingConstants.CENTER);
+		txtFondo.setHorizontalAlignment(SwingConstants.LEFT);
 		txtFondo.setEditable(false);
 		txtFondo.setBorder(null);
 		txtFondo.setFont(new Font("Roboto", Font.PLAIN, 12));
@@ -161,37 +161,23 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 
 		txtQuemadores = new JTextField();
 		txtQuemadores.setEditable(false);
-		txtQuemadores.setHorizontalAlignment(SwingConstants.CENTER);
+		txtQuemadores.setHorizontalAlignment(SwingConstants.LEFT);
 		txtQuemadores.setBorder(null);
 		txtQuemadores.setFont(new Font("Roboto", Font.PLAIN, 12));
 		txtQuemadores.setBounds(103, 143, 131, 20);
 		getContentPane().add(txtQuemadores);
 		txtQuemadores.setColumns(10);
-
-		btnBorrar = new JButton("");
-		btnBorrar.setBorderPainted(false);
-		btnBorrar.setHorizontalAlignment(SwingConstants.LEFT);
-		btnBorrar.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnBorrar.setRolloverIcon(new ImageIcon(DialogoConsultarCocina.class.getResource("/Imagenes/salir48.png")));
-		btnBorrar.setPressedIcon(new ImageIcon(DialogoConsultarCocina.class.getResource("/Imagenes/salir32.png")));
-		btnBorrar.setIcon(new ImageIcon(DialogoConsultarCocina.class.getResource("/Imagenes/salir32.png")));
-		btnBorrar.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnBorrar.setRequestFocusEnabled(false);
-		btnBorrar.setContentAreaFilled(false);
-		btnBorrar.setOpaque(false);
-		btnBorrar.setBorder(null);
-		btnBorrar.setBounds(362, 11, 62, 99);
-		getContentPane().add(btnBorrar);
-		btnBorrar.addActionListener(this);
-		btnBorrar.setFont(new Font("Roboto", Font.PLAIN, 14));
-		btnBorrar.setForeground(new Color(255, 255, 255));
-		btnBorrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnBorrar.setBackground(new Color(255, 255, 255));
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(323, 43, 89, 23);
+		getContentPane().add(btnCerrar);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnBorrar) {
-			actionPerformedBtnBorrar(e);
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
 		}
 		if (e.getSource() == txtPrecio) {
 			actionPerformedTxtPrecio(e);
@@ -242,10 +228,8 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 	protected void actionPerformedTxtPrecio(ActionEvent e) {
 
 	}
-
-	protected void actionPerformedBtnBorrar(ActionEvent e) {
-
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+	
 		dispose();
-
 	}
 }// Fin
