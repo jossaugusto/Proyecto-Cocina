@@ -1,12 +1,7 @@
 package proyecto;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -15,17 +10,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.border.LineBorder;
 import java.awt.Cursor;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.EtchedBorder;
-import java.awt.ComponentOrientation;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
-import javax.swing.DropMode;
 import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 
 public class DialogoConsultarCocina extends JDialog implements ActionListener {
 
@@ -36,7 +23,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 	private JLabel lblAlto;
 	private JLabel lblFondo;
 	private JLabel lblQuemadores;
-	private JComboBox cboModelo;
+	private JComboBox <String> cboModelo;
 	private JTextField txtPrecio;
 	private JTextField txtAncho;
 	private JTextField txtAlto;
@@ -47,6 +34,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 	/**
 	 * Launch the application.
 	 */
+
 	public static void main(String[] args) {
 		try {
 			DialogoConsultarCocina dialog = new DialogoConsultarCocina();
@@ -108,18 +96,17 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		lblQuemadores.setFont(new Font("Roboto", Font.PLAIN, 13));
 		getContentPane().add(lblQuemadores);
 
-		cboModelo = new JComboBox();
+		cboModelo = new JComboBox<String>();
 		cboModelo.setForeground(new Color(0, 0, 0));
 		cboModelo.setBorder(null);
 		cboModelo.setBackground(new Color(207, 207, 207));
 		cboModelo.setFont(new Font("Roboto", Font.PLAIN, 12));
 		cboModelo.setBounds(103, 17, 131, 22);
 		cboModelo.addActionListener(this);
-		cboModelo.setModel(new DefaultComboBoxModel(
-				new String[] { "Mabe EMP6120PG0", "Indurama Parma", "Coldex CX602", "Sole COSOL027", "Reco Dakota" }));
+		cboModelo.setModel(new DefaultComboBoxModel<String>(new String[] { "Mabe EMP6120PG0", "Indurama Parma", "Coldex CX602", "Sole COSOL027", "Reco Dakota" }));
 		getContentPane().add(cboModelo);
 
-		txtPrecio = new JTextField();
+		txtPrecio = new JTextField(MenuPrincipal.precio0 + "");
 		txtPrecio.setForeground(new Color(0, 0, 0));
 		txtPrecio.setSelectionColor(new Color(0, 128, 255));
 		txtPrecio.setHorizontalAlignment(SwingConstants.LEFT);
@@ -132,7 +119,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		getContentPane().add(txtPrecio);
 		txtPrecio.setColumns(10);
 
-		txtAncho = new JTextField();
+		txtAncho = new JTextField(MenuPrincipal.ancho0 + "");
 		txtAncho.setHorizontalAlignment(SwingConstants.LEFT);
 		txtAncho.setEditable(false);
 		txtAncho.setBorder(null);
@@ -141,7 +128,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		getContentPane().add(txtAncho);
 		txtAncho.setColumns(10);
 
-		txtAlto = new JTextField();
+		txtAlto = new JTextField(MenuPrincipal.alto0 + "");
 		txtAlto.setEditable(false);
 		txtAlto.setHorizontalAlignment(SwingConstants.LEFT);
 		txtAlto.setBorder(null);
@@ -150,7 +137,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		getContentPane().add(txtAlto);
 		txtAlto.setColumns(10);
 
-		txtFondo = new JTextField();
+		txtFondo = new JTextField(MenuPrincipal.fondo0 + "");
 		txtFondo.setHorizontalAlignment(SwingConstants.LEFT);
 		txtFondo.setEditable(false);
 		txtFondo.setBorder(null);
@@ -159,7 +146,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		getContentPane().add(txtFondo);
 		txtFondo.setColumns(10);
 
-		txtQuemadores = new JTextField();
+		txtQuemadores = new JTextField(MenuPrincipal.quemadores0 + "");
 		txtQuemadores.setEditable(false);
 		txtQuemadores.setHorizontalAlignment(SwingConstants.LEFT);
 		txtQuemadores.setBorder(null);
@@ -167,7 +154,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		txtQuemadores.setBounds(103, 143, 131, 20);
 		getContentPane().add(txtQuemadores);
 		txtQuemadores.setColumns(10);
-		
+
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCerrar.addActionListener(this);
@@ -179,9 +166,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		if (e.getSource() == btnCerrar) {
 			actionPerformedBtnCerrar(e);
 		}
-		if (e.getSource() == txtPrecio) {
-			actionPerformedTxtPrecio(e);
-		}
+
 		if (e.getSource() == cboModelo) {
 			actionPerformedCboModelo(e);
 		}
@@ -191,31 +176,37 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 
 		int modeloCC = cboModelo.getSelectedIndex();
 
-		if (modeloCC == 0) {
+		switch (modeloCC) {
+
+		case 0:
 			txtPrecio.setText(MenuPrincipal.precio0 + "");
 			txtAncho.setText(MenuPrincipal.ancho0 + "");
 			txtAlto.setText(MenuPrincipal.alto0 + "");
 			txtFondo.setText(MenuPrincipal.fondo0 + "");
 			txtQuemadores.setText(MenuPrincipal.quemadores0 + "");
-		} else if (modeloCC == 1) {
+			break;
+		case 1:
 			txtPrecio.setText(MenuPrincipal.precio1 + "");
 			txtAncho.setText(MenuPrincipal.ancho1 + "");
 			txtAlto.setText(MenuPrincipal.alto1 + "");
 			txtFondo.setText(MenuPrincipal.fondo1 + "");
 			txtQuemadores.setText(MenuPrincipal.quemadores1 + "");
-		} else if (modeloCC == 2) {
+			break;
+		case 2:
 			txtPrecio.setText(MenuPrincipal.precio2 + "");
 			txtAncho.setText(MenuPrincipal.ancho2 + "");
 			txtAlto.setText(MenuPrincipal.alto2 + "");
 			txtFondo.setText(MenuPrincipal.fondo2 + "");
 			txtQuemadores.setText(MenuPrincipal.quemadores2 + "");
-		} else if (modeloCC == 3) {
+			break;
+		case 3:
 			txtPrecio.setText(MenuPrincipal.precio3 + "");
 			txtAncho.setText(MenuPrincipal.ancho3 + "");
 			txtAlto.setText(MenuPrincipal.alto3 + "");
 			txtFondo.setText(MenuPrincipal.fondo3 + "");
 			txtQuemadores.setText(MenuPrincipal.quemadores3 + "");
-		} else {
+			break;
+		default:
 			txtPrecio.setText(MenuPrincipal.precio4 + "");
 			txtAncho.setText(MenuPrincipal.ancho4 + "");
 			txtAlto.setText(MenuPrincipal.alto4 + "");
@@ -225,11 +216,8 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 
 	}
 
-	protected void actionPerformedTxtPrecio(ActionEvent e) {
-
-	}
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
-	
+
 		dispose();
 	}
 }// Fin

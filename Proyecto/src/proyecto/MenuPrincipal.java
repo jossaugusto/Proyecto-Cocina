@@ -93,6 +93,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	/**
 	 * Launch the application.
 	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -131,7 +132,6 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 
 		mntmConsultarCocina = new JMenuItem("Consultar Cocina");
 		mntmConsultarCocina.addActionListener(this);
-		mntmConsultarCocina.setIcon(new ImageIcon("D:\\Descargas\\icons8-acercar-16.png"));
 		mnMantenimiento.add(mntmConsultarCocina);
 
 		mntmModificarCocina = new JMenuItem("Modificar Cocina");

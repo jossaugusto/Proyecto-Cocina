@@ -8,22 +8,15 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
 import java.awt.Font;
 import javax.swing.UIManager;
-import javax.swing.event.CaretListener;
-import javax.swing.event.CaretEvent;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.border.BevelBorder;
 import java.awt.Cursor;
-import javax.swing.ScrollPaneConstants;
 import java.awt.Toolkit;
-import javax.swing.ImageIcon;
-import java.awt.Dimension;
-import javax.swing.SwingConstants;
 
-public class DialogoListar extends JDialog implements ActionListener, CaretListener {
+public class DialogoListar extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JScrollPane scrollPane;
@@ -73,13 +66,13 @@ public class DialogoListar extends JDialog implements ActionListener, CaretListe
 		getContentPane().add(scrollPane);
 
 		txtS = new JTextArea();
+		txtS.setEditable(false);
 		txtS.setDisabledTextColor(new Color(255, 255, 255));
 		txtS.setSelectionColor(new Color(255, 255, 255));
 		txtS.setBackground(Color.WHITE);
 		txtS.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(192, 192, 192), new Color(192, 192, 192),
 				new Color(192, 192, 192), new Color(192, 192, 192)));
-		txtS.addCaretListener(this);
-		txtS.setFont(new Font("Roboto", Font.PLAIN, 12));
+		txtS.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		scrollPane.setViewportView(txtS);
 
 		btnCerrar = new JButton("Cerrar");
@@ -103,16 +96,6 @@ public class DialogoListar extends JDialog implements ActionListener, CaretListe
 		if (e.getSource() == btnListar) {
 			actionPerformedBtnListar(e);
 		}
-	}
-
-	public void caretUpdate(CaretEvent e) {
-		if (e.getSource() == txtS) {
-			caretUpdateTxtS(e);
-		}
-	}
-
-	protected void caretUpdateTxtS(CaretEvent e) {
-
 	}
 
 	protected void actionPerformedBtnListar(ActionEvent e) {
@@ -155,8 +138,8 @@ public class DialogoListar extends JDialog implements ActionListener, CaretListe
 		txtS.append("Quemadores : " + MenuPrincipal.quemadores4);
 
 	}
+
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
-	
 		dispose();
 	}
 }// FIN
