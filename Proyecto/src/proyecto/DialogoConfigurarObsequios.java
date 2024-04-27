@@ -10,21 +10,21 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class DialogoConfigurarObsequios extends JDialog {
+public class DialogoConfigurarObsequios extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
-	private JLabel lblPorcentaje1;
-	private JLabel lblPorcentaje2;
-	private JLabel lblPorcentaje3;
-	private JLabel lblPorcentaje4;
-	private JTextField txtPorcentaje1;
-	private JTextField txtPorcentaje2;
-	private JTextField txtPorcentaje3;
-	private JTextField txtPorcentaje4;
-	private JButton btnAceptar;
-	private JButton btnCancelar;
+	private JLabel lblObsequio1;
+	private JLabel lblObsequio2;
+	private JLabel lblObsequio3;
+	private JTextField txtObsequio1;
+	private JButton btnAceptar_1;
+	private JButton btnCancelar_1;
+	private JTextField txtObsequio2;
+	private JTextField txtObsequio3;
 
 	/**
 	 * Launch the application.
@@ -43,56 +43,88 @@ public class DialogoConfigurarObsequios extends JDialog {
 	 * Create the dialog.
 	 */
 	public DialogoConfigurarObsequios() {
-		setTitle("Configurar Porcetaje de Descuento");
-		setBounds(100, 100, 450, 177);
+		setTitle("Configurar Obsequios");
+		setBounds(100, 100, 450, 130);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(192, 192, 192));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		lblPorcentaje1 = new JLabel("1 a 5 unidades");
-		lblPorcentaje1.setBounds(21, 23, 72, 14);
-		contentPanel.add(lblPorcentaje1);
+		lblObsequio1 = new JLabel("1 unidad");
+		lblObsequio1.setBounds(29, 15, 111, 14);
+		contentPanel.add(lblObsequio1);
 		
-		lblPorcentaje2 = new JLabel("6 a 10 unidades");
-		lblPorcentaje2.setBounds(21, 48, 86, 14);
-		contentPanel.add(lblPorcentaje2);
+		lblObsequio2 = new JLabel("2 a 5 unidades");
+		lblObsequio2.setBounds(29, 40, 123, 14);
+		contentPanel.add(lblObsequio2);
 		
-		lblPorcentaje3 = new JLabel("11 a 15 unidades");
-		lblPorcentaje3.setBounds(21, 73, 99, 14);
-		contentPanel.add(lblPorcentaje3);
+		lblObsequio3 = new JLabel("6 a mas unidades");
+		lblObsequio3.setBounds(29, 65, 139, 14);
+		contentPanel.add(lblObsequio3);
 		
-		lblPorcentaje4 = new JLabel("Más de 15 unidades");
-		lblPorcentaje4.setBounds(21, 98, 99, 14);
-		contentPanel.add(lblPorcentaje4);
+		txtObsequio1 = new JTextField(MenuPrincipal.obsequio1);
+		txtObsequio1.setColumns(10);
+		txtObsequio1.setBounds(157, 12, 86, 20);
+		contentPanel.add(txtObsequio1);
 		
-		txtPorcentaje1 = new JTextField();
-		txtPorcentaje1.setBounds(127, 20, 86, 20);
-		contentPanel.add(txtPorcentaje1);
-		txtPorcentaje1.setColumns(10);
+		btnAceptar_1 = new JButton("Aceptar");
+		btnAceptar_1.addActionListener(this);
+		btnAceptar_1.setBounds(324, 11, 89, 23);
+		contentPanel.add(btnAceptar_1);
 		
-		txtPorcentaje2 = new JTextField();
-		txtPorcentaje2.setColumns(10);
-		txtPorcentaje2.setBounds(127, 45, 86, 20);
-		contentPanel.add(txtPorcentaje2);
+		btnCancelar_1 = new JButton("Cancelar");
+		btnCancelar_1.addActionListener(this);
+		btnCancelar_1.setBounds(324, 40, 89, 23);
+		contentPanel.add(btnCancelar_1);
 		
-		txtPorcentaje3 = new JTextField();
-		txtPorcentaje3.setColumns(10);
-		txtPorcentaje3.setBounds(127, 70, 86, 20);
-		contentPanel.add(txtPorcentaje3);
+		txtObsequio2 = new JTextField(MenuPrincipal.obsequio2);
+		txtObsequio2.setColumns(10);
+		txtObsequio2.setBounds(157, 37, 86, 20);
+		contentPanel.add(txtObsequio2);
 		
-		txtPorcentaje4 = new JTextField();
-		txtPorcentaje4.setColumns(10);
-		txtPorcentaje4.setBounds(127, 95, 86, 20);
-		contentPanel.add(txtPorcentaje4);
+		txtObsequio3 = new JTextField(MenuPrincipal.obsequio3);
+		txtObsequio3.setColumns(10);
+		txtObsequio3.setBounds(157, 62, 86, 20);
+		contentPanel.add(txtObsequio3);
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCancelar_1) {
+			actionPerformedBtnCancelar_1(e);
+		}
+		if (e.getSource() == btnAceptar_1) {
+			actionPerformedBtnAceptar_1(e);
+		}
+	}
+	
+	
+	
+	String cambiarobsequio1  () {
+		return txtObsequio1.getText();
 		
-		btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(316, 19, 89, 23);
-		contentPanel.add(btnAceptar);
 		
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(316, 48, 89, 23);
-		contentPanel.add(btnCancelar);
+	}
+	
+	String cambiarobsequio2  () {
+		return txtObsequio2.getText();
+		
+	}
+	
+	String cambiarobsequio3  () {
+		return txtObsequio3.getText();
+	}
+	
+	
+	protected void actionPerformedBtnAceptar_1(ActionEvent e) {
+		
+		MenuPrincipal.obsequio1 = cambiarobsequio1  ();
+		MenuPrincipal.obsequio2  = cambiarobsequio2  ();
+		MenuPrincipal.obsequio3  = cambiarobsequio3  ();
+		
+		dispose();
+		
+	}
+	protected void actionPerformedBtnCancelar_1(ActionEvent e) {
+		dispose();
 	}
 }
