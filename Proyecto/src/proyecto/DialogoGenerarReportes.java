@@ -69,6 +69,7 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener {
 			getContentPane().add(scrollPane);
 
 			txtS = new JTextArea();
+			txtS.setEditable(false);
 			txtS.setFont(new Font("Monospaced", Font.PLAIN, 13));
 			scrollPane.setViewportView(txtS);
 		}
@@ -108,19 +109,19 @@ public class DialogoGenerarReportes extends JDialog implements ActionListener {
 			comparacionPromedio1 = " (Mayor al promedio)";
 
 		if (MenuPrincipal.precio2 < precioPromedio)
-			comparacionPromedio0 = " (Menor al promedio)";
+			comparacionPromedio2 = " (Menor al promedio)";
 		else if (MenuPrincipal.precio2 > precioPromedio)
-			comparacionPromedio0 = " (Mayor al promedio)";
+			comparacionPromedio2 = " (Mayor al promedio)";
 
 		if (MenuPrincipal.precio3 < precioPromedio)
-			comparacionPromedio0 = " (Menor al promedio)";
+			comparacionPromedio3 = " (Menor al promedio)";
 		else if (MenuPrincipal.precio3 > precioPromedio)
-			comparacionPromedio0 = " (Mayor al promedio)";
+			comparacionPromedio3 = " (Mayor al promedio)";
 
 		if (MenuPrincipal.precio4 < precioPromedio)
-			comparacionPromedio0 = " (Menor al promedio)";
+			comparacionPromedio4 = " (Menor al promedio)";
 		else if (MenuPrincipal.precio4 > precioPromedio)
-			comparacionPromedio0 = " (Mayor al promedio)";
+			comparacionPromedio4 = " (Mayor al promedio)";
 
 		reporte = (String) cboTipodeReporte.getSelectedItem();
 

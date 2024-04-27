@@ -172,9 +172,11 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		mnConfiguracion.add(separator_2);
 
 		mntmConfigurarCantidadOptima = new JMenuItem("Configurar Cantidad \u00D3ptima");
+		mntmConfigurarCantidadOptima.addActionListener(this);
 		mnConfiguracion.add(mntmConfigurarCantidadOptima);
 
 		mntmConfigurarCuotaDiaria = new JMenuItem("Configurar Cuota Diaria");
+		mntmConfigurarCuotaDiaria.addActionListener(this);
 		mnConfiguracion.add(mntmConfigurarCuotaDiaria);
 
 		mnAyuda = new JMenu("Ayuda");
@@ -191,6 +193,12 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mntmConfigurarCantidadOptima) {
+			actionPerformedMntmConfigurarCantidadOptima(e);
+		}
+		if (e.getSource() == mntmConfigurarCuotaDiaria) {
+			actionPerformedMntmConfigurarCuotaDiaria(e);
+		}
 		if (e.getSource() == mntmGenerarReportes) {
 			actionPerformedMntmGenerarReportes(e);
 		}
@@ -267,6 +275,24 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 
 		diagere.setLocationRelativeTo(this);
 		diagere.setVisible(true);
+
+	}
+
+	protected void actionPerformedMntmConfigurarCuotaDiaria(ActionEvent e) {
+
+		DialogoCuotaDiaria confiCuota = new DialogoCuotaDiaria();
+
+		confiCuota.setLocationRelativeTo(this);
+		confiCuota.setVisible(true);
+
+	}
+
+	protected void actionPerformedMntmConfigurarCantidadOptima(ActionEvent e) {
+
+		DialogoConfigurarCantidadOptima confiOptima = new DialogoConfigurarCantidadOptima();
+
+		confiOptima.setLocationRelativeTo(this);
+		confiOptima.setVisible(true);
 
 	}
 }// FIN

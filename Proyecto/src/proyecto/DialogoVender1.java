@@ -117,6 +117,7 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 		getContentPane().add(scrollPane);
 
 		txtS = new JTextArea();
+		txtS.setEditable(false);
 		txtS.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		scrollPane.setViewportView(txtS);
 	}

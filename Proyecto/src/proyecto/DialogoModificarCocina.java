@@ -231,9 +231,9 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 	double cambiarPrecio(double precio) {
 		precio = Double.parseDouble(txtPrecio.getText());
 
-		if (precio < MenuPrincipal.precio3)
+		if (precio < MenuPrincipal.precio0 || precio < MenuPrincipal.precio1 || precio < MenuPrincipal.precio2 || precio < MenuPrincipal.precio3 || precio < MenuPrincipal.precio4)
 			precioMenor = precio;
-		else if (precio > MenuPrincipal.precio1)
+		else if (precio > MenuPrincipal.precio0 || precio > MenuPrincipal.precio1 || precio > MenuPrincipal.precio2 || precio > MenuPrincipal.precio3 || precio > MenuPrincipal.precio4)
 			precioMayor = precio;
 		return precio;
 	}

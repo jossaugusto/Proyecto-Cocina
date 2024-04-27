@@ -1,8 +1,6 @@
 package proyecto;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -13,8 +11,11 @@ import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+import java.awt.Cursor;
 
-public class DialogoCuotaDiaria extends JDialog implements ActionListener {
+public class DialogoCuotaDiaria extends JDialog implements ActionListener, KeyListener {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
@@ -47,12 +48,13 @@ public class DialogoCuotaDiaria extends JDialog implements ActionListener {
 		contentPanel.setLayout(null);
 		{
 			JLabel lblCuotaDiaria = new JLabel("Cuota diaria esperada (S/.)");
-			lblCuotaDiaria.setFont(new Font("Dialog", Font.BOLD, 12));
+			lblCuotaDiaria.setFont(new Font("Roboto", Font.BOLD, 13));
 			lblCuotaDiaria.setBounds(10, 24, 163, 14);
 			contentPanel.add(lblCuotaDiaria);
 		}
 		{
 			txtCuotaDiaria = new JTextField(MenuPrincipal.cuotaDiaria + "");
+			txtCuotaDiaria.addKeyListener(this);
 			txtCuotaDiaria.addActionListener(this);
 			txtCuotaDiaria.setBorder(null);
 			txtCuotaDiaria.setBounds(183, 22, 86, 20);
@@ -61,6 +63,7 @@ public class DialogoCuotaDiaria extends JDialog implements ActionListener {
 		}
 		{
 			btnAceptar = new JButton("Aceptar");
+			btnAceptar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			btnAceptar.addActionListener(this);
 			btnAceptar.setBorder(null);
 			btnAceptar.setBounds(335, 21, 89, 23);
@@ -68,6 +71,7 @@ public class DialogoCuotaDiaria extends JDialog implements ActionListener {
 		}
 		{
 			btnCancelar = new JButton("Cancelar");
+			btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			btnCancelar.addActionListener(this);
 			btnCancelar.setBorder(null);
 			btnCancelar.setBounds(335, 50, 89, 23);
@@ -82,24 +86,41 @@ public class DialogoCuotaDiaria extends JDialog implements ActionListener {
 		if (e.getSource() == btnAceptar) {
 			actionPerformedBtnAceptar(e);
 		}
-		if (e.getSource() == txtCuotaDiaria) {
-			actionPerformedTxtCuota(e);
-		}
 	}
-	protected void actionPerformedTxtCuota(ActionEvent e) {
-	}
+
 	double cambiarcuota() {
 		return Double.parseDouble(txtCuotaDiaria.getText());
 	}
-	
+
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		
-		MenuPrincipal.cuotaDiaria = cambiarcuota ();
+
+		MenuPrincipal.cuotaDiaria = cambiarcuota();
 		dispose();
-		
-		
 	}
+
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
 		dispose();
+	}
+
+	public void keyPressed(KeyEvent e) {
+	}
+
+	public void keyReleased(KeyEvent e) {
+	}
+
+	public void keyTyped(KeyEvent e) {
+		if (e.getSource() == txtCuotaDiaria) {
+			keyTypedTxtCuotaDiaria(e);
+		}
+	}
+
+	protected void keyTypedTxtCuotaDiaria(KeyEvent e) {
+
+		double key = e.getKeyChar();
+		boolean punto = key == 46;
+		boolean numero = key >= 48 && key < 57;
+		if (!punto && !numero)
+			e.consume();
+
 	}
 }
