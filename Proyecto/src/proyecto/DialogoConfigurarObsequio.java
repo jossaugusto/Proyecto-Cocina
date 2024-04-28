@@ -1,8 +1,6 @@
 package proyecto;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -12,8 +10,11 @@ import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+import java.awt.Cursor;
 
-public class DialogoConfgurarObsequio extends JDialog implements ActionListener {
+public class DialogoConfigurarObsequio extends JDialog implements ActionListener, KeyListener {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
@@ -28,7 +29,7 @@ public class DialogoConfgurarObsequio extends JDialog implements ActionListener 
 	 */
 	public static void main(String[] args) {
 		try {
-			DialogoConfgurarObsequio dialog = new DialogoConfgurarObsequio();
+			DialogoConfigurarObsequio dialog = new DialogoConfigurarObsequio();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -39,7 +40,7 @@ public class DialogoConfgurarObsequio extends JDialog implements ActionListener 
 	/**
 	 * Create the dialog.
 	 */
-	public DialogoConfgurarObsequio() {
+	public DialogoConfigurarObsequio() {
 		setTitle("Configurar obsequios");
 		setBounds(100, 100, 450, 134);
 		getContentPane().setLayout(new BorderLayout());
@@ -63,7 +64,8 @@ public class DialogoConfgurarObsequio extends JDialog implements ActionListener 
 			contentPanel.add(lblObsequio3);
 		}
 		{
-			txtObsequio1 = new JTextField();
+			txtObsequio1 = new JTextField(MenuPrincipal.obsequio1 + "");
+			txtObsequio1.addKeyListener(this);
 			txtObsequio1.setColumns(10);
 			txtObsequio1.setBorder(null);
 			txtObsequio1.setBounds(140, 12, 86, 20);
@@ -71,25 +73,29 @@ public class DialogoConfgurarObsequio extends JDialog implements ActionListener 
 		}
 		{
 			btnAceptar = new JButton("Aceptar");
+			btnAceptar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			btnAceptar.addActionListener(this);
 			btnAceptar.setBounds(317, 11, 89, 23);
 			contentPanel.add(btnAceptar);
 		}
 		{
 			btnCancelar = new JButton("Cancelar");
+			btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			btnCancelar.addActionListener(this);
 			btnCancelar.setBounds(317, 40, 89, 23);
 			contentPanel.add(btnCancelar);
 		}
 		{
-			txtObsequio2 = new JTextField();
+			txtObsequio2 = new JTextField(MenuPrincipal.obsequio2 + "");
+			txtObsequio2.addKeyListener(this);
 			txtObsequio2.setColumns(10);
 			txtObsequio2.setBorder(null);
 			txtObsequio2.setBounds(140, 37, 86, 20);
 			contentPanel.add(txtObsequio2);
 		}
 		{
-			txtObsequio3 = new JTextField();
+			txtObsequio3 = new JTextField(MenuPrincipal.obsequio3 + "");
+			txtObsequio3.addKeyListener(this);
 			txtObsequio3.setColumns(10);
 			txtObsequio3.setBorder(null);
 			txtObsequio3.setBounds(140, 62, 86, 20);
@@ -105,29 +111,68 @@ public class DialogoConfgurarObsequio extends JDialog implements ActionListener 
 			actionPerformedBtnAceptar(e);
 		}
 	}
-	
-	String marcarObsequio1 () {
-		return (txtObsequio1.getText());
+
+	String cambiarObsequio1() {
+		return txtObsequio1.getText();
 	}
-	String marcarObsequio2 () {
-		return (txtObsequio1.getText());
+
+	String cambiarObsequio2() {
+		return txtObsequio2.getText();
 	}
-	String marcarObsequio3 () {
-		return (txtObsequio1.getText());
+
+	String cambiarObsequio3() {
+		return txtObsequio3.getText();
 	}
-	
-	
+
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		
-		MenuPrincipal.obsequio1 = marcarObsequio1();
-		MenuPrincipal.obsequio2 = marcarObsequio2();
-		MenuPrincipal.obsequio3 = marcarObsequio3();
-		
+
+		MenuPrincipal.obsequio1 = cambiarObsequio1();
+		MenuPrincipal.obsequio2 = cambiarObsequio2();
+		MenuPrincipal.obsequio3 = cambiarObsequio3();
+
 		dispose();
 	}
+
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
 		dispose();
 	}
-	
-	
+
+	public void keyPressed(KeyEvent e) {
+	}
+
+	public void keyReleased(KeyEvent e) {
+	}
+
+	public void keyTyped(KeyEvent e) {
+		if (e.getSource() == txtObsequio3) {
+			keyTypedTxtObsequio3(e);
+		}
+		if (e.getSource() == txtObsequio2) {
+			keyTypedTxtObsequio2(e);
+		}
+		if (e.getSource() == txtObsequio1) {
+			keyTypedTxtObsequio1(e);
+		}
+	}
+
+	protected void keyTypedTxtObsequio1(KeyEvent e) {
+
+		if (!(Character.isLetter(e.getKeyChar()))) {
+			e.consume();
+		}
+	}
+
+	protected void keyTypedTxtObsequio2(KeyEvent e) {
+
+		if (!(Character.isLetter(e.getKeyChar()))) {
+			e.consume();
+		}
+	}
+
+	protected void keyTypedTxtObsequio3(KeyEvent e) {
+
+		if (!(Character.isLetter(e.getKeyChar()))) {
+			e.consume();
+		}
+	}
 }

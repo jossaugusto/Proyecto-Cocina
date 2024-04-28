@@ -6,6 +6,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -101,6 +102,11 @@ public class DialogoConfigurarCantidadOptima extends JDialog implements ActionLi
 	}
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
+		
+		if (txtCantidad.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
+			return;
+		}
 
 		MenuPrincipal.cantidadOptima = cambiarcantidad();
 		dispose();

@@ -3,6 +3,7 @@ package proyecto;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
@@ -231,9 +232,11 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 	double cambiarPrecio(double precio) {
 		precio = Double.parseDouble(txtPrecio.getText());
 
-		if (precio < MenuPrincipal.precio0 || precio < MenuPrincipal.precio1 || precio < MenuPrincipal.precio2 || precio < MenuPrincipal.precio3 || precio < MenuPrincipal.precio4)
+		if (precio < MenuPrincipal.precio0 || precio < MenuPrincipal.precio1 || precio < MenuPrincipal.precio2
+				|| precio < MenuPrincipal.precio3 || precio < MenuPrincipal.precio4)
 			precioMenor = precio;
-		else if (precio > MenuPrincipal.precio0 || precio > MenuPrincipal.precio1 || precio > MenuPrincipal.precio2 || precio > MenuPrincipal.precio3 || precio > MenuPrincipal.precio4)
+		else if (precio > MenuPrincipal.precio0 || precio > MenuPrincipal.precio1 || precio > MenuPrincipal.precio2
+				|| precio > MenuPrincipal.precio3 || precio > MenuPrincipal.precio4)
 			precioMayor = precio;
 		return precio;
 	}
@@ -257,6 +260,12 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 	public static double precioMayor = MenuPrincipal.precio1, precioMenor = MenuPrincipal.precio3;
 
 	protected void actionPerformedBtnGrabar(ActionEvent e) {
+
+		if (txtPrecio.getText().isEmpty() || txtAlto.getText().isEmpty() || txtAncho.getText().isEmpty()
+				|| txtFondo.getText().isEmpty() || txtQuemadores.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
+			return;
+		}
 
 		double precio = 0;
 		int modeloMD = cboModelo.getSelectedIndex();
@@ -375,6 +384,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 			e.consume();
 
 	}
+
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();
 	}

@@ -163,9 +163,11 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		menuBar.add(mnConfiguracion);
 
 		mntmConfigurarDescuentos = new JMenuItem("Configurar Descuentos");
+		mntmConfigurarDescuentos.addActionListener(this);
 		mnConfiguracion.add(mntmConfigurarDescuentos);
 
 		mntmConfigurarObsequios = new JMenuItem("Configurar Obsequios");
+		mntmConfigurarObsequios.addActionListener(this);
 		mnConfiguracion.add(mntmConfigurarObsequios);
 
 		separator_2 = new JSeparator();
@@ -193,6 +195,12 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mntmConfigurarObsequios) {
+			actionPerformedMntmConfigurarObsequios(e);
+		}
+		if (e.getSource() == mntmConfigurarDescuentos) {
+			actionPerformedMntmConfigurarDescuentos(e);
+		}
 		if (e.getSource() == mntmConfigurarCantidadOptima) {
 			actionPerformedMntmConfigurarCantidadOptima(e);
 		}
@@ -294,5 +302,25 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		confiOptima.setLocationRelativeTo(this);
 		confiOptima.setVisible(true);
 
+	}
+
+	protected void actionPerformedMntmConfigurarDescuentos(ActionEvent e) {
+
+		DialogoConfigurarDescuento confiDes = new DialogoConfigurarDescuento();
+
+		confiDes.setLocationRelativeTo(this);
+		confiDes.setVisible(true);
+
+	}
+	protected void actionPerformedMntmConfigurarObsequios(ActionEvent e) {
+		
+		DialogoConfigurarObsequio confiObs = new DialogoConfigurarObsequio();
+
+		confiObs.setLocationRelativeTo(this);
+		confiObs.setVisible(true);
+
+		
+		
+		
 	}
 }// FIN

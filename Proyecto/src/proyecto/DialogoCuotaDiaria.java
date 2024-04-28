@@ -6,6 +6,8 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.Color;
@@ -94,6 +96,11 @@ public class DialogoCuotaDiaria extends JDialog implements ActionListener, KeyLi
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 
+		if (txtCuotaDiaria.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
+			return;
+		}
+		
 		MenuPrincipal.cuotaDiaria = cambiarcuota();
 		dispose();
 	}
