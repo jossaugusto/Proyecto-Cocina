@@ -6,6 +6,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -125,6 +126,11 @@ public class DialogoConfigurarObsequio extends JDialog implements ActionListener
 	}
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
+
+		if (txtObsequio1.getText().isEmpty() || txtObsequio2.getText().isEmpty() || txtObsequio3.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Coloque el obsequio deseado");
+			return;
+		}
 
 		MenuPrincipal.obsequio1 = cambiarObsequio1();
 		MenuPrincipal.obsequio2 = cambiarObsequio2();

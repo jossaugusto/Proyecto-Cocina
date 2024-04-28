@@ -6,6 +6,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -146,6 +147,12 @@ public class DialogoConfigurarDescuento extends JDialog implements ActionListene
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 
+		if (txtPorcentaje1.getText().isEmpty() || txtPorcentaje2.getText().isEmpty()
+				|| txtPorcentaje3.getText().isEmpty() || txtPorcentaje4.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Coloque el porcentaje deseado");
+			return;
+		}
+
 		MenuPrincipal.porcentaje1 = cambiarPorcentaje1();
 		MenuPrincipal.porcentaje2 = cambiarPorcentaje2();
 		MenuPrincipal.porcentaje3 = cambiarPorcentaje3();
@@ -190,24 +197,27 @@ public class DialogoConfigurarDescuento extends JDialog implements ActionListene
 			e.consume();
 
 	}
+
 	protected void keyTypedTxtPorcentaje2(KeyEvent e) {
-		
+
 		double key = e.getKeyChar();
 		boolean punto = key == 46;
 		boolean numero = key >= 48 && key < 57;
 		if (!punto && !numero)
 			e.consume();
 	}
+
 	protected void keyTypedTxtPorcentaje3(KeyEvent e) {
-		
+
 		double key = e.getKeyChar();
 		boolean punto = key == 46;
 		boolean numero = key >= 48 && key < 57;
 		if (!punto && !numero)
 			e.consume();
 	}
+
 	protected void keyTypedTxtPorcentaje4(KeyEvent e) {
-		
+
 		double key = e.getKeyChar();
 		boolean punto = key == 46;
 		boolean numero = key >= 48 && key < 57;
