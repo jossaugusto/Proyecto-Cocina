@@ -113,6 +113,14 @@ public class DialogoConfigurarCantidadOptima extends JDialog implements ActionLi
 	}
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
+
+		int salir = JOptionPane.showConfirmDialog(this, "¿Estas seguro de guardar el cambio?",
+				"Confirmacion", JOptionPane.YES_NO_OPTION);
+		if (salir == JOptionPane.YES_OPTION)
+		{
+			MenuPrincipal.cantidadOptima = Integer.parseInt(txtCantidad.getText());
+			JOptionPane.showMessageDialog(null, "Guardado Exitoso" , "Aviso", 1, null);
+		}
 		
 		if (txtCantidad.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
