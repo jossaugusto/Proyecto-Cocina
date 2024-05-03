@@ -2,7 +2,6 @@ package proyecto;
 
 import java.awt.EventQueue;
 import java.awt.Image;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -129,7 +128,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	//Precios Promedio, Mayor, Menor
 	public static double precioMayor = precio1;
 	public static double precioMenor = precio3;
-	public static double precioPromedio = (precioMenor + precioMayor) / 2;
+	public static double precioPromedio = (precioMenor/2 + precioMayor/2);
 	public static double anchoMayor = ancho1;
 	public static double anchoMenor = ancho0;
 	public static double anchoPromedio = (anchoMenor + anchoMayor) / 2;
@@ -330,11 +329,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 
 	}
 
-	protected void actionPerformedMntmNewMenuItem(ActionEvent e) {
 
-		System.exit(0);
-
-	}
 
 	protected void actionPerformedMntmNewMenuItem_1(ActionEvent e) {
 
@@ -401,10 +396,12 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		DialogoConfigurarObsequio confiObs = new DialogoConfigurarObsequio();
 
 		confiObs.setLocationRelativeTo(this);
-		confiObs.setVisible(true);
+		confiObs.setVisible(true);	
+	}
+	
+	protected void actionPerformedMntmNewMenuItem(ActionEvent e) {
 
-		
-		
-		
+		System.exit(0);
+
 	}
 }// FIN
