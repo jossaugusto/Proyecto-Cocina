@@ -44,7 +44,8 @@ public class DialogoConfigurarCantidadOptima extends JDialog implements ActionLi
 	 */
 	public DialogoConfigurarCantidadOptima() {
 		setModal(true);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(DialogoConfigurarCantidadOptima.class.getResource("/Imagenes/iconoEscudo.png")));
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(DialogoConfigurarCantidadOptima.class.getResource("/Imagenes/iconoEscudo.png")));
 		setBounds(100, 100, 450, 151);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(192, 192, 192));
@@ -78,16 +79,14 @@ public class DialogoConfigurarCantidadOptima extends JDialog implements ActionLi
 		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(335, 52, 89, 23);
 		contentPanel.add(btnCancelar);
-		
+
 		mostrarDatos();
 	}
 
 	void mostrarDatos() {
 		txtCantidad.setText(MenuPrincipal.cantidadOptima + "");
 	}
-	
-	
-	
+
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnAceptar) {
 			actionPerformedBtnAceptar(e);
@@ -114,21 +113,20 @@ public class DialogoConfigurarCantidadOptima extends JDialog implements ActionLi
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 
-		int salir = JOptionPane.showConfirmDialog(this, "¿Estas seguro de guardar el cambio?",
-				"Confirmacion", JOptionPane.YES_NO_OPTION);
-		if (salir == JOptionPane.YES_OPTION)
-		{
-			MenuPrincipal.cantidadOptima = Integer.parseInt(txtCantidad.getText());
-			JOptionPane.showMessageDialog(null, "Guardado Exitoso" , "Aviso", 1, null);
+		int salir = JOptionPane.showConfirmDialog(this, "¿Estas seguro de guardar el cambio?", "Confirmacion",
+				JOptionPane.YES_NO_OPTION);
+		if (salir == JOptionPane.YES_OPTION) {
+			MenuPrincipal.cantidadOptima = cambiarcantidad();
+			;
+			JOptionPane.showMessageDialog(this, "Guardado Exitoso", "Aviso", 1, null);
+			dispose();
 		}
-		
+
 		if (txtCantidad.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
 			return;
 		}
 
-		MenuPrincipal.cantidadOptima = cambiarcantidad();
-		dispose();
 	}
 
 	public void keyPressed(KeyEvent e) {
