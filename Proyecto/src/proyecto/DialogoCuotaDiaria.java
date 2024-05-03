@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.awt.Cursor;
+import java.awt.Toolkit;
 
 public class DialogoCuotaDiaria extends JDialog implements ActionListener, KeyListener {
 
@@ -42,6 +43,8 @@ public class DialogoCuotaDiaria extends JDialog implements ActionListener, KeyLi
 	 * Create the dialog.
 	 */
 	public DialogoCuotaDiaria() {
+		setModal(true);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DialogoCuotaDiaria.class.getResource("/Imagenes/iconoEscudo.png")));
 		setBounds(100, 100, 450, 142);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(192, 192, 192));
@@ -55,7 +58,7 @@ public class DialogoCuotaDiaria extends JDialog implements ActionListener, KeyLi
 			contentPanel.add(lblCuotaDiaria);
 		}
 		{
-			txtCuotaDiaria = new JTextField(MenuPrincipal.cuotaDiaria + "");
+			txtCuotaDiaria = new JTextField();
 			txtCuotaDiaria.addKeyListener(this);
 			txtCuotaDiaria.addActionListener(this);
 			txtCuotaDiaria.setBorder(null);
@@ -78,9 +81,15 @@ public class DialogoCuotaDiaria extends JDialog implements ActionListener, KeyLi
 			btnCancelar.setBorder(null);
 			btnCancelar.setBounds(335, 50, 89, 23);
 			contentPanel.add(btnCancelar);
+			
+			mostrarDatos();
 		}
 	}
 
+	void mostrarDatos() {
+		txtCuotaDiaria.setText(MenuPrincipal.cuotaDiaria + "");
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCancelar) {
 			actionPerformedBtnCancelar(e);

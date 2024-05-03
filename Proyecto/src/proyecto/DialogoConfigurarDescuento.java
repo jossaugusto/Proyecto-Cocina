@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Cursor;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
+import java.awt.Toolkit;
 
 public class DialogoConfigurarDescuento extends JDialog implements ActionListener, KeyListener {
 
@@ -47,6 +48,8 @@ public class DialogoConfigurarDescuento extends JDialog implements ActionListene
 	 * Create the dialog.
 	 */
 	public DialogoConfigurarDescuento() {
+		setModal(true);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DialogoConfigurarDescuento.class.getResource("/Imagenes/iconoEscudo.png")));
 		setTitle("Configurar porcentajes de descuento");
 		setBounds(100, 100, 450, 178);
 		getContentPane().setLayout(new BorderLayout());
@@ -71,28 +74,28 @@ public class DialogoConfigurarDescuento extends JDialog implements ActionListene
 		lblPorcentaje4.setBounds(26, 102, 130, 14);
 		contentPanel.add(lblPorcentaje4);
 
-		txtPorcentaje1 = new JTextField(MenuPrincipal.porcentaje1 + "");
+		txtPorcentaje1 = new JTextField();
 		txtPorcentaje1.addKeyListener(this);
 		txtPorcentaje1.setBorder(null);
 		txtPorcentaje1.setBounds(144, 24, 86, 20);
 		contentPanel.add(txtPorcentaje1);
 		txtPorcentaje1.setColumns(10);
 
-		txtPorcentaje2 = new JTextField(MenuPrincipal.porcentaje2 + "");
+		txtPorcentaje2 = new JTextField();
 		txtPorcentaje2.addKeyListener(this);
 		txtPorcentaje2.setBorder(null);
 		txtPorcentaje2.setBounds(144, 49, 86, 20);
 		contentPanel.add(txtPorcentaje2);
 		txtPorcentaje2.setColumns(10);
 
-		txtPorcentaje3 = new JTextField(MenuPrincipal.porcentaje3 + "");
+		txtPorcentaje3 = new JTextField();
 		txtPorcentaje3.addKeyListener(this);
 		txtPorcentaje3.setBorder(null);
 		txtPorcentaje3.setBounds(144, 74, 86, 20);
 		contentPanel.add(txtPorcentaje3);
 		txtPorcentaje3.setColumns(10);
 
-		txtPorcentaje4 = new JTextField(MenuPrincipal.porcentaje4 + "");
+		txtPorcentaje4 = new JTextField();
 		txtPorcentaje4.addKeyListener(this);
 		txtPorcentaje4.setBorder(null);
 		txtPorcentaje4.setBounds(144, 99, 86, 20);
@@ -110,8 +113,17 @@ public class DialogoConfigurarDescuento extends JDialog implements ActionListene
 		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(321, 23, 89, 23);
 		contentPanel.add(btnAceptar);
+		
+		mostrarDatos();
 	}
 
+	void mostrarDatos() {
+		txtPorcentaje1.setText(MenuPrincipal.porcentaje1 + "");
+		txtPorcentaje2.setText(MenuPrincipal.porcentaje2 + "");
+		txtPorcentaje3.setText(MenuPrincipal.porcentaje3 + "");
+		txtPorcentaje4.setText(MenuPrincipal.porcentaje4 + "");
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCancelar) {
 			actionPerformedBtnCancelar(e);

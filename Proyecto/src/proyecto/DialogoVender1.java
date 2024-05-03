@@ -25,9 +25,13 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 	private JTextField txtCantidad;
 	private JButton btnCerrar;
 	private JButton btnVender;
-	private JComboBox <String>cboModelo;
+	private JComboBox<String> cboModelo;
 	private JScrollPane scrollPane;
 	private JTextArea txtS;
+
+	int cantidad = 0;
+	String regalo = "", modelo = "";
+	double impC = 0, impD = 0, impP, precio = 0;
 
 	/**
 	 * Launch the application.
@@ -46,6 +50,7 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 	 * Create the dialog.
 	 */
 	public DialogoVender1() {
+		setModal(true);
 		getContentPane().setForeground(new Color(255, 255, 255));
 		setTitle("Vender");
 		setIconImage(
@@ -76,11 +81,12 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 			cboModelo.addActionListener(this);
 			cboModelo.setBounds(79, 11, 138, 22);
 			cboModelo.setFont(new Font("Roboto", Font.PLAIN, 12));
-			cboModelo.setModel(new DefaultComboBoxModel<String>(new String[] { "Mabe EMP6120PG0", "Indurama Parma","Sole COSOL027", "Coldex CX602", "Reco Dakota" }));
+			cboModelo.setModel(new DefaultComboBoxModel<String>(new String[] { "Mabe EMP6120PG0", "Indurama Parma",
+					"Sole COSOL027", "Coldex CX602", "Reco Dakota" }));
 			getContentPane().add(cboModelo);
 		}
 		{
-			txtPrecio = new JTextField(MenuPrincipal.precio0 + "");
+			txtPrecio = new JTextField();
 			txtPrecio.setFont(new Font("Roboto", Font.PLAIN, 12));
 			txtPrecio.setEditable(false);
 			txtPrecio.setBorder(null);
@@ -120,6 +126,12 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 		txtS.setEditable(false);
 		txtS.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		scrollPane.setViewportView(txtS);
+
+		mostrarDatos();
+	}
+
+	void mostrarDatos() {
+		txtPrecio.setText(MenuPrincipal.precio0 + "");
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -135,25 +147,66 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 	}
 
 	protected void actionPerformedCboModelo(ActionEvent e) {
-		double modelo;
 
-		modelo = cboModelo.getSelectedIndex();
+		String modelo;
+		modelo = (String) cboModelo.getSelectedItem();
 
-		if (modelo == 0)
+		switch (modelo) {
+		case "Mabe EMP6120PG0":
 			txtPrecio.setText(MenuPrincipal.precio0 + "");
+			break;
 
-		else if (modelo == 1)
+		case "Indurama Parma":
 			txtPrecio.setText(MenuPrincipal.precio1 + "");
+			break;
 
-		else if (modelo == 2)
+		case "Sole COSOL027":
 			txtPrecio.setText(MenuPrincipal.precio2 + "");
+			break;
 
-		else if (modelo == 3)
+		case "Coldex CX602":
 			txtPrecio.setText(MenuPrincipal.precio3 + "");
+			break;
 
-		else
+		default:
 			txtPrecio.setText(MenuPrincipal.precio4 + "");
+			break;
+		}
+	}
 
+	protected void actionPerformedBtnVender(ActionEvent e) {
+
+		campoTextoVacio();
+
+		cantidad = leerCantidad();
+
+		modelo = leerModelo();
+
+		precio = calcularPrecio();
+
+		impC = calcularImporteCompra();
+
+		impD = calcularImporteDescuento();
+
+		impP = calcularImportePagar();
+
+		calcularVariablesParaReportes();
+
+		regalo = verRegalo();
+
+		mostrarBoleta();
+
+		acumulador();
+
+		mostraMensajeEnPantalla();
+
+	}
+
+	void campoTextoVacio() {
+		if (txtCantidad.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
+			return;
+		}
 	}
 
 	int leerCantidad() {
@@ -164,8 +217,7 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 		return (String) cboModelo.getSelectedItem();
 	}
 
-	Double calcularPrecio(String modelo) {
-		double precio;
+	Double calcularPrecio() {
 
 		switch (modelo) {
 		case "Mabe EMP6120PG0":
@@ -184,69 +236,19 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 			precio = MenuPrincipal.precio4;
 			break;
 		}
+			if (precio < MenuPrincipal.precio0 || precio < MenuPrincipal.precio1 || precio < MenuPrincipal.precio2
+					|| precio < MenuPrincipal.precio3 || precio < MenuPrincipal.precio4)
+				MenuPrincipal.precioMenor = precio;
 		return precio;
 	}
 
-	Double calcularImporteCompra(double precio, int cantidad, String modelo) {
-		switch (modelo) {
-		case "Mabe EMP6120PG0":
-			cantidadVentas0++;
-			unidadesVendidas0 += cantidad;
-			if (unidadesVendidas0 == MenuPrincipal.cantidadOptima)
-				optima0 = " (igual a la cantidad óptima)";
-			else if (unidadesVendidas0 < MenuPrincipal.cantidadOptima)
-				optima0 = " (" + (MenuPrincipal.cantidadOptima - unidadesVendidas0) + " menos que la cantida óptima)";
-			else
-				optima0 = " (" + (unidadesVendidas0 - MenuPrincipal.cantidadOptima) + " más que la cantida óptima)";
-			break;
 
-		case "Indurama Parma":
-			cantidadVentas1++;
-			unidadesVendidas1 += cantidad;
-			if (unidadesVendidas0 == MenuPrincipal.cantidadOptima)
-				optima1 = " (igual a la cantidad óptima)";
-			else if (unidadesVendidas0 < MenuPrincipal.cantidadOptima)
-				optima1 = " (" + (MenuPrincipal.cantidadOptima - unidadesVendidas0) + " menos que la cantida óptima)";
-			else
-				optima1 = " (" + (unidadesVendidas0 - MenuPrincipal.cantidadOptima) + " más que la cantida óptima)";
-			break;
-		case "Sole COSOL027":
-			cantidadVentas2++;
-			unidadesVendidas2 += cantidad;
-			if (unidadesVendidas0 == MenuPrincipal.cantidadOptima)
-				optima2 = " (igual a la cantidad óptima)";
-			else if (unidadesVendidas0 < MenuPrincipal.cantidadOptima)
-				optima2 = " (" + (MenuPrincipal.cantidadOptima - unidadesVendidas0) + " menos que la cantida óptima)";
-			else
-				optima2 = " (" + (unidadesVendidas0 - MenuPrincipal.cantidadOptima) + " más que la cantida óptima)";
-			break;
-		case "Coldex CX602":
-			cantidadVentas3++;
-			unidadesVendidas3 += cantidad;
-			if (unidadesVendidas0 == MenuPrincipal.cantidadOptima)
-				optima3 = " (igual a la cantidad óptima)";
-			else if (unidadesVendidas0 < MenuPrincipal.cantidadOptima)
-				optima3 = " (" + (MenuPrincipal.cantidadOptima - unidadesVendidas0) + " menos que la cantida óptima)";
-			else
-				optima3 = " (" + (unidadesVendidas0 - MenuPrincipal.cantidadOptima) + " más que la cantida óptima)";
-			break;
-		default:
-			cantidadVentas4++;
-			unidadesVendidas4 += cantidad;
-			if (unidadesVendidas0 == MenuPrincipal.cantidadOptima)
-				optima4 = " (igual a la cantidad óptima)";
-			else if (unidadesVendidas0 < MenuPrincipal.cantidadOptima)
-				optima4 = " (" + (MenuPrincipal.cantidadOptima - unidadesVendidas0) + " menos que la cantida óptima)";
-			else
-				optima4 = " (" + (unidadesVendidas0 - MenuPrincipal.cantidadOptima) + " más que la cantida óptima)";
-			break;
-		}
+	Double calcularImporteCompra() {
 		return precio * cantidad;
 
 	}
 
-	Double calcularImporteDescuento(int cantidad, double impC) {
-		double impD;
+	Double calcularImporteDescuento() {
 
 		if (cantidad >= 1 && cantidad <= 5)
 			impD = (MenuPrincipal.porcentaje1 / 100) * impC;
@@ -259,37 +261,47 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 		return impD;
 	}
 
-	Double calcularImportePagar(String modelo, double impC, double impD) {
-		double impP = impC - impD;
+	Double calcularImportePagar() {
+		return impC - impD;
+	}
+
+	void calcularVariablesParaReportes() {
 
 		switch (modelo) {
 		case "Mabe EMP6120PG0":
-			sumaImporte0 += impP;
-			aporteCuotaD0 = (sumaImporte0 / MenuPrincipal.cuotaDiaria * 100);
+			MenuPrincipal.cantidadVentas0++;
+			MenuPrincipal.unidadesVendidas0 += cantidad;
+			MenuPrincipal.sumaImporte0 += impP;
+			MenuPrincipal.aporteCuotaD0 = (MenuPrincipal.sumaImporte0 / MenuPrincipal.cuotaDiaria * 100);
 			break;
 		case "Indurama Parma":
-			sumaImporte1 += impP;
-			aporteCuotaD1 = (sumaImporte0 / MenuPrincipal.cuotaDiaria * 100);
+			MenuPrincipal.cantidadVentas1++;
+			MenuPrincipal.unidadesVendidas1 += cantidad;
+			MenuPrincipal.sumaImporte1 += impP;
+			MenuPrincipal.aporteCuotaD1 = (MenuPrincipal.sumaImporte1 / MenuPrincipal.cuotaDiaria * 100);
 			break;
 		case "Sole COSOL027":
-			sumaImporte2 += impP;
-			aporteCuotaD2 = (sumaImporte0 / MenuPrincipal.cuotaDiaria * 100);
+			MenuPrincipal.cantidadVentas2++;
+			MenuPrincipal.unidadesVendidas2 += cantidad;
+			MenuPrincipal.sumaImporte2 += impP;
+			MenuPrincipal.aporteCuotaD2 = (MenuPrincipal.sumaImporte2 / MenuPrincipal.cuotaDiaria * 100);
 			break;
 		case "Coldex CX602":
-			sumaImporte3 += impP;
-			aporteCuotaD3 = (sumaImporte0 / MenuPrincipal.cuotaDiaria * 100);
+			MenuPrincipal.cantidadVentas3++;
+			MenuPrincipal.unidadesVendidas3 += cantidad;
+			MenuPrincipal.sumaImporte3 += impP;
+			MenuPrincipal.aporteCuotaD3 = (MenuPrincipal.sumaImporte3 / MenuPrincipal.cuotaDiaria * 100);
 			break;
 		default:
-			sumaImporte4 += impP;
-			aporteCuotaD4 = (sumaImporte0 / MenuPrincipal.cuotaDiaria * 100);
+			MenuPrincipal.cantidadVentas4++;
+			MenuPrincipal.unidadesVendidas4 += cantidad;
+			MenuPrincipal.sumaImporte4 += impP;
+			MenuPrincipal.aporteCuotaD4 = (MenuPrincipal.sumaImporte4 / MenuPrincipal.cuotaDiaria * 100);
 			break;
 		}
-		return impP;
-
 	}
 
-	String verRegalo(int cantidad) {
-		String regalo;
+	String verRegalo() {
 
 		if (cantidad == 1)
 			regalo = MenuPrincipal.obsequio1;
@@ -302,58 +314,36 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 		return regalo;
 	}
 
-	void mostrarBoleta(String modelo, double precio, int cantidad, double impC, double impD, double impP,
-			String regalo) {
+	void mostrarBoleta() {
 		txtS.setText("Boleta de venta \n\n");
-		txtS.append("Modelo\t\t\t: " + modelo + "\n");
-		txtS.append("Precio\t\t\t: " + String.format("S/.%,6.2f", precio) + "\n");
-		txtS.append("Cantidad\t\t: " + cantidad + "\n");
-		txtS.append("importe de compra\t: " + String.format("S/.%,6.2f", impC) + "\n");
-		txtS.append("importe de descuento\t: " + String.format("S/.%,6.2f", impD) + "\n");
-		txtS.append("importe a pagar\t\t: " + String.format("S/.%,6.2f", impP) + "\n");
-		txtS.append("Obsequio\t\t: " + regalo + "\n");
+		imprimir("Modelo\t\t\t: " + modelo);
+		imprimir("Precio\t\t\t: " + String.format("S/.%,6.2f", precio));
+		imprimir("Cantidad\t\t: " + cantidad);
+		imprimir("importe de compra\t: " + String.format("S/.%,6.2f", impC));
+		imprimir("importe de descuento\t: " + String.format("S/.%,6.2f", impD));
+		imprimir("importe a pagar\t\t: " + String.format("S/.%,6.2f", impP));
+		imprimir("Obsequio\t\t: " + regalo);
+	}
+	
+	void imprimir(String s) {
+		txtS.append(s + "\n");
 	}
 
-//==========================================================================================================================================
-	public static int cantidadVentas0 = 0, cantidadVentas1 = 0, cantidadVentas2 = 0, cantidadVentas3 = 0,
-			cantidadVentas4 = 0;
-	public static double sumaImporte0 = 0, sumaImporte1 = 0, sumaImporte2 = 0, sumaImporte3 = 0, sumaImporte4 = 0;
-	public static int unidadesVendidas0 = 0, unidadesVendidas1 = 0, unidadesVendidas2 = 0, unidadesVendidas3 = 0,
-			unidadesVendidas4 = 0;
-	public static double aporteCuotaDiaria0 = 0, aporteCuotaDiaria1 = 0, aporteCuotaDiaria2 = 0, aporteCuotaDiaria3 = 0,
-			aporteCuotaDiaria4 = 0;
-	public static String optima0 = "", optima1 = "", optima2 = "", optima3 = "", optima4 = "";
-	public static double aporteCuotaD0 = 0, aporteCuotaD1 = 0, aporteCuotaD2 = 0, aporteCuotaD3 = 0, aporteCuotaD4 = 0;
+	void acumulador() {
+		MenuPrincipal.contadorVentas++;
+		MenuPrincipal.sumaImporteTotal += impP;
+		MenuPrincipal.aporteTotalCuota += (impP / MenuPrincipal.cuotaDiaria) * 100;
+	}
 
-
-//===========================================================================================================================================
-
-	protected void actionPerformedBtnVender(ActionEvent e) {
-
-		if (txtCantidad.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
-			return;
+	void mostraMensajeEnPantalla() {
+		if (MenuPrincipal.contadorVentas % 5 == 0) {
+			JOptionPane.showMessageDialog(null,
+					"Ventas Nro. " + MenuPrincipal.contadorVentas + "\n" + "Importe total general acumulado: S/. "
+							+ Math.round(MenuPrincipal.sumaImporteTotal * 100) / 100 + "\n"
+							+ " Porcentaje de la cuota diaria : "
+							+ Math.round(MenuPrincipal.aporteTotalCuota * 100) / 100 + "%",
+					"Avance de ventas", 1);
 		}
-
-		double impC = 0, impD = 0, impP, precio = 0;
-		int cantidad = 0;
-		String regalo = "", modelo = "";
-
-		cantidad = leerCantidad();
-
-		modelo = leerModelo();
-
-		precio = calcularPrecio(modelo);
-
-		impC = calcularImporteCompra(precio, cantidad, modelo);
-
-		impD = calcularImporteDescuento(cantidad, impC);
-
-		impP = calcularImportePagar(modelo, impC, impD);
-
-		regalo = verRegalo(cantidad);
-
-		mostrarBoleta(modelo, precio, cantidad, impC, impD, impP, regalo);
 
 	}
 

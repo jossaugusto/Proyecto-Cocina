@@ -15,6 +15,7 @@ import java.awt.event.InputEvent;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class MenuPrincipal extends JFrame implements ActionListener {
 
@@ -89,6 +90,54 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	public static int cantidadOptima = 30;
 	// Cuota diaria
 	public static double cuotaDiaria = 75000;
+	// Cantidad Ventas
+	public static int cantidadVentas0 = 0;
+	public static int cantidadVentas1 = 0;
+	public static int cantidadVentas2 = 0;
+	public static int cantidadVentas3 = 0;
+	public static int cantidadVentas4 = 0;
+	public static int contadorVentas = 0;
+	//Importes
+	public static double sumaImporte0 = 0;
+	public static double sumaImporte1 = 0;
+	public static double sumaImporte2 = 0;
+	public static double sumaImporte3 = 0;
+	public static double sumaImporte4 = 0;
+	public static double sumaImporteTotal = 0;
+	//Unidades Vendidas
+	public static int unidadesVendidas0 = 0;
+	public static int unidadesVendidas1 = 0;
+	public static int unidadesVendidas2 = 0;
+	public static int unidadesVendidas3 = 0;
+	public static int unidadesVendidas4 = 0;
+	//Aporte a la cuota diaria
+	public static double aporteCuotaD0;
+	public static double aporteCuotaD1 = 0;
+	public static double aporteCuotaD2 = 0;
+	public static double aporteCuotaD3 = 0;
+	public static double aporteCuotaD4 = 0;
+	public static double aporteTotalCuota = 0;
+	//Comparación con la cantidad optima
+	public static String optima0 = "";
+	public static String optima1 = "";
+	public static String optima2 = "";
+	public static String optima3 = "";
+	public static String optima4 = "";
+	//Precios Promedio, Mayor, Menor
+	public static double precioMayor = precio1;
+	public static double precioMenor = precio3;
+	public static double precioPromedio = (precioMenor + precioMayor) / 2;
+	public static double anchoMayor = ancho1;
+	public static double anchoMenor = ancho0;
+	public static double anchoPromedio = (anchoMenor + anchoMayor) / 2;
+	//Comparacion de precio con promedio
+	public static String comparacionPromedio0 = "";
+	public static String comparacionPromedio1 = "";
+	public static String comparacionPromedio2 = "";
+	public static String comparacionPromedio3 = "";
+	public static String comparacionPromedio4 = "";
+	
+
 
 	/**
 	 * Launch the application.
@@ -111,6 +160,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public MenuPrincipal() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/Imagenes/iconoEscudo.png")));
 		setTitle("Tienda1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 583);

@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
+import java.awt.Toolkit;
 
 public class DialogoConfigurarCantidadOptima extends JDialog implements ActionListener, KeyListener {
 
@@ -42,6 +43,8 @@ public class DialogoConfigurarCantidadOptima extends JDialog implements ActionLi
 	 * Create the dialog.
 	 */
 	public DialogoConfigurarCantidadOptima() {
+		setModal(true);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DialogoConfigurarCantidadOptima.class.getResource("/Imagenes/iconoEscudo.png")));
 		setBounds(100, 100, 450, 151);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(192, 192, 192));
@@ -54,7 +57,7 @@ public class DialogoConfigurarCantidadOptima extends JDialog implements ActionLi
 		lblCantidad.setBounds(10, 22, 245, 19);
 		contentPanel.add(lblCantidad);
 
-		txtCantidad = new JTextField(MenuPrincipal.cantidadOptima + "");
+		txtCantidad = new JTextField();
 		txtCantidad.addKeyListener(this);
 		txtCantidad.addActionListener(this);
 		txtCantidad.setBorder(null);
@@ -75,8 +78,16 @@ public class DialogoConfigurarCantidadOptima extends JDialog implements ActionLi
 		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(335, 52, 89, 23);
 		contentPanel.add(btnCancelar);
+		
+		mostrarDatos();
 	}
 
+	void mostrarDatos() {
+		txtCantidad.setText(MenuPrincipal.cantidadOptima + "");
+	}
+	
+	
+	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnAceptar) {
 			actionPerformedBtnAceptar(e);

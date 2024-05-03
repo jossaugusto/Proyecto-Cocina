@@ -49,6 +49,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 	 */
 
 	public DialogoModificarCocina() {
+		setModal(true);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBackground(new Color(240, 240, 240));
 		setIconImage(Toolkit.getDefaultToolkit()
@@ -111,7 +112,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 			getContentPane().add(cboModelo);
 		}
 		{
-			txtPrecio = new JTextField(MenuPrincipal.precio0 + "");
+			txtPrecio = new JTextField();
 			txtPrecio.addKeyListener(this);
 			txtPrecio.setFont(new Font("Roboto", Font.PLAIN, 12));
 			txtPrecio.setHorizontalAlignment(SwingConstants.LEFT);
@@ -121,7 +122,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 			txtPrecio.setColumns(10);
 		}
 		{
-			txtAncho = new JTextField(MenuPrincipal.ancho0 + "");
+			txtAncho = new JTextField();
 			txtAncho.addKeyListener(this);
 			txtAncho.setHorizontalAlignment(SwingConstants.LEFT);
 			txtAncho.setFont(new Font("Roboto", Font.PLAIN, 12));
@@ -131,7 +132,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 			txtAncho.setColumns(10);
 		}
 		{
-			txtAlto = new JTextField(MenuPrincipal.alto0 + "");
+			txtAlto = new JTextField();
 			txtAlto.addKeyListener(this);
 			txtAlto.setHorizontalAlignment(SwingConstants.LEFT);
 			txtAlto.setFont(new Font("Roboto", Font.PLAIN, 12));
@@ -141,7 +142,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 			txtAlto.setColumns(10);
 		}
 		{
-			txtFondo = new JTextField(MenuPrincipal.fondo0 + "");
+			txtFondo = new JTextField();
 			txtFondo.addKeyListener(this);
 			txtFondo.setHorizontalAlignment(SwingConstants.LEFT);
 			txtFondo.setFont(new Font("Roboto", Font.PLAIN, 12));
@@ -151,7 +152,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 			txtFondo.setColumns(10);
 		}
 		{
-			txtQuemadores = new JTextField(MenuPrincipal.quemadores0 + "");
+			txtQuemadores = new JTextField();
 			txtQuemadores.addKeyListener(this);
 			txtQuemadores.setHorizontalAlignment(SwingConstants.LEFT);
 			txtQuemadores.setFont(new Font("Roboto", Font.PLAIN, 12));
@@ -169,9 +170,21 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 		}
 
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(335, 12, 89, 23);
 		getContentPane().add(btnCerrar);
+
+		mostrarDatos();
+
+	}
+
+	void mostrarDatos() {
+		txtPrecio.setText(MenuPrincipal.precio0 + "");
+		txtAlto.setText(MenuPrincipal.alto0 + "");
+		txtAncho.setText(MenuPrincipal.ancho0 + "");
+		txtFondo.setText(MenuPrincipal.fondo0 + "");
+		txtQuemadores.setText(MenuPrincipal.quemadores0 + "");
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -193,52 +206,29 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 		switch (modeloMD) {
 
 		case 0:
-			txtPrecio.setText(MenuPrincipal.precio0 + "");
-			txtAncho.setText(MenuPrincipal.ancho0 + "");
-			txtAlto.setText(MenuPrincipal.alto0 + "");
-			txtFondo.setText(MenuPrincipal.fondo0 + "");
-			txtQuemadores.setText(MenuPrincipal.quemadores0 + "");
+			imprimir(MenuPrincipal.precio0, MenuPrincipal.ancho0, MenuPrincipal.alto0, MenuPrincipal.fondo0,
+					MenuPrincipal.quemadores0);
 			break;
 		case 1:
-			txtPrecio.setText(MenuPrincipal.precio1 + "");
-			txtAncho.setText(MenuPrincipal.ancho1 + "");
-			txtAlto.setText(MenuPrincipal.alto1 + "");
-			txtFondo.setText(MenuPrincipal.fondo1 + "");
-			txtQuemadores.setText(MenuPrincipal.quemadores1 + "");
+			imprimir(MenuPrincipal.precio1, MenuPrincipal.ancho1, MenuPrincipal.alto1, MenuPrincipal.fondo1,
+					MenuPrincipal.quemadores1);
 			break;
 		case 2:
-			txtPrecio.setText(MenuPrincipal.precio2 + "");
-			txtAncho.setText(MenuPrincipal.ancho2 + "");
-			txtAlto.setText(MenuPrincipal.alto2 + "");
-			txtFondo.setText(MenuPrincipal.fondo2 + "");
-			txtQuemadores.setText(MenuPrincipal.quemadores2 + "");
+			imprimir(MenuPrincipal.precio2, MenuPrincipal.ancho2, MenuPrincipal.alto2, MenuPrincipal.fondo2,
+					MenuPrincipal.quemadores2);
 			break;
 		case 3:
-			txtPrecio.setText(MenuPrincipal.precio3 + "");
-			txtAncho.setText(MenuPrincipal.ancho3 + "");
-			txtAlto.setText(MenuPrincipal.alto3 + "");
-			txtFondo.setText(MenuPrincipal.fondo3 + "");
-			txtQuemadores.setText(MenuPrincipal.quemadores3 + "");
+			imprimir(MenuPrincipal.precio3, MenuPrincipal.ancho3, MenuPrincipal.alto3, MenuPrincipal.fondo3,
+					MenuPrincipal.quemadores3);
 			break;
 		default:
-			txtPrecio.setText(MenuPrincipal.precio4 + "");
-			txtAncho.setText(MenuPrincipal.ancho4 + "");
-			txtAlto.setText(MenuPrincipal.alto4 + "");
-			txtFondo.setText(MenuPrincipal.fondo4 + "");
-			txtQuemadores.setText(MenuPrincipal.quemadores4 + "");
+			imprimir(MenuPrincipal.precio4, MenuPrincipal.ancho4, MenuPrincipal.alto4, MenuPrincipal.fondo4,
+					MenuPrincipal.quemadores4);
 		}
 	}
 
-	double cambiarPrecio(double precio) {
-		precio = Double.parseDouble(txtPrecio.getText());
-
-		if (precio < MenuPrincipal.precio0 || precio < MenuPrincipal.precio1 || precio < MenuPrincipal.precio2
-				|| precio < MenuPrincipal.precio3 || precio < MenuPrincipal.precio4)
-			precioMenor = precio;
-		else if (precio > MenuPrincipal.precio0 || precio > MenuPrincipal.precio1 || precio > MenuPrincipal.precio2
-				|| precio > MenuPrincipal.precio3 || precio > MenuPrincipal.precio4)
-			precioMayor = precio;
-		return precio;
+	double cambiarPrecio() {
+		return Double.parseDouble(txtPrecio.getText());
 	}
 
 	double cambiarAncho() {
@@ -257,51 +247,44 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 		return Integer.parseInt(txtQuemadores.getText());
 	}
 
-	public static double precioMayor = MenuPrincipal.precio1, precioMenor = MenuPrincipal.precio3;
-
 	protected void actionPerformedBtnGrabar(ActionEvent e) {
 
-		if (txtPrecio.getText().isEmpty() || txtAlto.getText().isEmpty() || txtAncho.getText().isEmpty()
-				|| txtFondo.getText().isEmpty() || txtQuemadores.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
-			return;
-		}
+		int modelo = cboModelo.getSelectedIndex();
 
-		double precio = 0;
-		int modeloMD = cboModelo.getSelectedIndex();
+		campoDeTextoVacio();
 
-		switch (modeloMD) {
+		switch (modelo) {
 
 		case 0:
-			MenuPrincipal.precio0 = cambiarPrecio(precio);
+			MenuPrincipal.precio0 = cambiarPrecio();
 			MenuPrincipal.ancho0 = cambiarAncho();
 			MenuPrincipal.alto0 = cambiarAlto();
 			MenuPrincipal.fondo0 = cambiarFondo();
 			MenuPrincipal.quemadores0 = cambiarQuemadores();
 			break;
 		case 1:
-			MenuPrincipal.precio1 = cambiarPrecio(precio);
+			MenuPrincipal.precio1 = cambiarPrecio();
 			MenuPrincipal.ancho1 = cambiarAncho();
 			MenuPrincipal.alto1 = cambiarAlto();
 			MenuPrincipal.fondo1 = cambiarFondo();
 			MenuPrincipal.quemadores1 = cambiarQuemadores();
 			break;
 		case 2:
-			MenuPrincipal.precio2 = cambiarPrecio(precio);
+			MenuPrincipal.precio2 = cambiarPrecio();
 			MenuPrincipal.ancho2 = cambiarAncho();
 			MenuPrincipal.alto2 = cambiarAlto();
 			MenuPrincipal.fondo2 = cambiarFondo();
 			MenuPrincipal.quemadores2 = cambiarQuemadores();
 			break;
 		case 3:
-			MenuPrincipal.precio3 = cambiarPrecio(precio);
+			MenuPrincipal.precio3 = cambiarPrecio();
 			MenuPrincipal.ancho3 = cambiarAncho();
 			MenuPrincipal.alto3 = cambiarAlto();
 			MenuPrincipal.fondo3 = cambiarFondo();
 			MenuPrincipal.quemadores3 = cambiarQuemadores();
 			break;
 		default:
-			MenuPrincipal.precio4 = cambiarPrecio(precio);
+			MenuPrincipal.precio4 = cambiarPrecio();
 			MenuPrincipal.ancho4 = cambiarAncho();
 			MenuPrincipal.alto4 = cambiarAlto();
 			MenuPrincipal.fondo4 = cambiarFondo();
@@ -309,7 +292,40 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 			break;
 		}
 
+		if (cambiarPrecio() < MenuPrincipal.precio0 || cambiarPrecio() < MenuPrincipal.precio1
+				|| cambiarPrecio() < MenuPrincipal.precio2 || cambiarPrecio() < MenuPrincipal.precio3
+				|| cambiarPrecio() < MenuPrincipal.precio4) {
+			MenuPrincipal.precioMenor = cambiarPrecio();
+			MenuPrincipal.precioPromedio = (cambiarPrecio() + MenuPrincipal.precioMayor) / 2;
+		} else if (cambiarPrecio() > MenuPrincipal.precio0 || cambiarPrecio() > MenuPrincipal.precio1
+				|| cambiarPrecio() > MenuPrincipal.precio2 || cambiarPrecio() > MenuPrincipal.precio3
+				|| cambiarPrecio() > MenuPrincipal.precio4) {
+			MenuPrincipal.precioMayor = cambiarPrecio();
+			MenuPrincipal.precioPromedio = (cambiarPrecio() + MenuPrincipal.precioMayor) / 2;
+		}
 		dispose();
+	}
+
+	void imprimir(double pre, double anc, double alt, double fond, int quem) {
+		txtPrecio.setText(pre + "");
+		txtAncho.setText(anc + "");
+		txtAlto.setText(alt + "");
+		txtFondo.setText(fond + "");
+		txtQuemadores.setText(quem + "");
+	}
+
+	void campoDeTextoVacio() {
+
+		String campoTextoPrecio = txtPrecio.getText();
+		String campoTextoAncho = txtAncho.getText();
+		String campoTextoAlto = txtAlto.getText();
+		String campoTextoFondo = txtFondo.getText();
+		String campoTextoQuemadores = txtQuemadores.getText();
+
+		if (campoTextoPrecio.isEmpty() || campoTextoAncho.isEmpty() || campoTextoAlto.isEmpty()
+				|| campoTextoFondo.isEmpty() || campoTextoQuemadores.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
+		}
 	}
 
 	public void keyPressed(KeyEvent e) {
@@ -340,7 +356,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 
 		double key = e.getKeyChar();
 		boolean punto = key == 46;
-		boolean numero = key >= 48 && key < 57;
+		boolean numero = key >= 48 && key < 58;
 		if (!punto && !numero)
 			e.consume();
 
@@ -350,7 +366,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 
 		double key = e.getKeyChar();
 		boolean punto = key == 46;
-		boolean numero = key >= 48 && key < 57;
+		boolean numero = key >= 48 && key < 58;
 		if (!punto && !numero)
 			e.consume();
 	}
@@ -359,7 +375,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 
 		double key = e.getKeyChar();
 		boolean punto = key == 46;
-		boolean numero = key >= 48 && key < 57;
+		boolean numero = key >= 48 && key < 58;
 		if (!punto && !numero)
 			e.consume();
 

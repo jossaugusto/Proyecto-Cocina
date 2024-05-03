@@ -23,7 +23,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 	private JLabel lblAlto;
 	private JLabel lblFondo;
 	private JLabel lblQuemadores;
-	private JComboBox <String> cboModelo;
+	private JComboBox<String> cboModelo;
 	private JTextField txtPrecio;
 	private JTextField txtAncho;
 	private JTextField txtAlto;
@@ -49,6 +49,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DialogoConsultarCocina() {
+		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(DialogoConsultarCocina.class.getResource("/Imagenes/iconoEscudo.png")));
 		getContentPane().setForeground(new Color(255, 255, 255));
@@ -103,10 +104,11 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		cboModelo.setFont(new Font("Roboto", Font.PLAIN, 12));
 		cboModelo.setBounds(103, 17, 131, 22);
 		cboModelo.addActionListener(this);
-		cboModelo.setModel(new DefaultComboBoxModel<String>(new String[] { "Mabe EMP6120PG0", "Indurama Parma", "Coldex CX602", "Sole COSOL027", "Reco Dakota" }));
+		cboModelo.setModel(new DefaultComboBoxModel<String>(
+				new String[] { "Mabe EMP6120PG0", "Indurama Parma", "Coldex CX602", "Sole COSOL027", "Reco Dakota" }));
 		getContentPane().add(cboModelo);
 
-		txtPrecio = new JTextField(MenuPrincipal.precio0 + "");
+		txtPrecio = new JTextField();
 		txtPrecio.setForeground(new Color(0, 0, 0));
 		txtPrecio.setSelectionColor(new Color(0, 128, 255));
 		txtPrecio.setHorizontalAlignment(SwingConstants.LEFT);
@@ -119,7 +121,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		getContentPane().add(txtPrecio);
 		txtPrecio.setColumns(10);
 
-		txtAncho = new JTextField(MenuPrincipal.ancho0 + "");
+		txtAncho = new JTextField();
 		txtAncho.setHorizontalAlignment(SwingConstants.LEFT);
 		txtAncho.setEditable(false);
 		txtAncho.setBorder(null);
@@ -128,7 +130,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		getContentPane().add(txtAncho);
 		txtAncho.setColumns(10);
 
-		txtAlto = new JTextField(MenuPrincipal.alto0 + "");
+		txtAlto = new JTextField();
 		txtAlto.setEditable(false);
 		txtAlto.setHorizontalAlignment(SwingConstants.LEFT);
 		txtAlto.setBorder(null);
@@ -137,7 +139,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		getContentPane().add(txtAlto);
 		txtAlto.setColumns(10);
 
-		txtFondo = new JTextField(MenuPrincipal.fondo0 + "");
+		txtFondo = new JTextField();
 		txtFondo.setHorizontalAlignment(SwingConstants.LEFT);
 		txtFondo.setEditable(false);
 		txtFondo.setBorder(null);
@@ -146,7 +148,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		getContentPane().add(txtFondo);
 		txtFondo.setColumns(10);
 
-		txtQuemadores = new JTextField(MenuPrincipal.quemadores0 + "");
+		txtQuemadores = new JTextField();
 		txtQuemadores.setEditable(false);
 		txtQuemadores.setHorizontalAlignment(SwingConstants.LEFT);
 		txtQuemadores.setBorder(null);
@@ -160,6 +162,17 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(323, 43, 89, 23);
 		getContentPane().add(btnCerrar);
+
+		mostrarDatos();
+
+	}
+
+	void mostrarDatos() {
+		txtPrecio.setText(MenuPrincipal.precio0 + "");
+		txtAlto.setText(MenuPrincipal.alto0 + "");
+		txtAncho.setText(MenuPrincipal.ancho0 + "");
+		txtFondo.setText(MenuPrincipal.fondo0 + "");
+		txtQuemadores.setText(MenuPrincipal.quemadores0 + "");
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -179,41 +192,34 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener {
 		switch (modeloCC) {
 
 		case 0:
-			txtPrecio.setText(MenuPrincipal.precio0 + "");
-			txtAncho.setText(MenuPrincipal.ancho0 + "");
-			txtAlto.setText(MenuPrincipal.alto0 + "");
-			txtFondo.setText(MenuPrincipal.fondo0 + "");
-			txtQuemadores.setText(MenuPrincipal.quemadores0 + "");
+			imprimir(MenuPrincipal.precio0, MenuPrincipal.ancho0, MenuPrincipal.alto0, MenuPrincipal.fondo0,
+					MenuPrincipal.quemadores0);
 			break;
 		case 1:
-			txtPrecio.setText(MenuPrincipal.precio1 + "");
-			txtAncho.setText(MenuPrincipal.ancho1 + "");
-			txtAlto.setText(MenuPrincipal.alto1 + "");
-			txtFondo.setText(MenuPrincipal.fondo1 + "");
-			txtQuemadores.setText(MenuPrincipal.quemadores1 + "");
+			imprimir(MenuPrincipal.precio1, MenuPrincipal.ancho1, MenuPrincipal.alto1, MenuPrincipal.fondo1,
+					MenuPrincipal.quemadores1);
 			break;
 		case 2:
-			txtPrecio.setText(MenuPrincipal.precio2 + "");
-			txtAncho.setText(MenuPrincipal.ancho2 + "");
-			txtAlto.setText(MenuPrincipal.alto2 + "");
-			txtFondo.setText(MenuPrincipal.fondo2 + "");
-			txtQuemadores.setText(MenuPrincipal.quemadores2 + "");
+			imprimir(MenuPrincipal.precio2, MenuPrincipal.ancho2, MenuPrincipal.alto2, MenuPrincipal.fondo2,
+					MenuPrincipal.quemadores2);
 			break;
 		case 3:
-			txtPrecio.setText(MenuPrincipal.precio3 + "");
-			txtAncho.setText(MenuPrincipal.ancho3 + "");
-			txtAlto.setText(MenuPrincipal.alto3 + "");
-			txtFondo.setText(MenuPrincipal.fondo3 + "");
-			txtQuemadores.setText(MenuPrincipal.quemadores3 + "");
+			imprimir(MenuPrincipal.precio3, MenuPrincipal.ancho3, MenuPrincipal.alto3, MenuPrincipal.fondo3,
+					MenuPrincipal.quemadores3);
 			break;
 		default:
-			txtPrecio.setText(MenuPrincipal.precio4 + "");
-			txtAncho.setText(MenuPrincipal.ancho4 + "");
-			txtAlto.setText(MenuPrincipal.alto4 + "");
-			txtFondo.setText(MenuPrincipal.fondo4 + "");
-			txtQuemadores.setText(MenuPrincipal.quemadores4 + "");
+			imprimir(MenuPrincipal.precio4, MenuPrincipal.ancho4, MenuPrincipal.alto4, MenuPrincipal.fondo4,
+					MenuPrincipal.quemadores4);
 		}
 
+	}
+
+	void imprimir(double pre, double anc, double alt, double fond, int quem) {
+		txtPrecio.setText(pre + "");
+		txtAncho.setText(anc + "");
+		txtAlto.setText(alt + "");
+		txtFondo.setText(fond + "");
+		txtQuemadores.setText(quem + "");
 	}
 
 	protected void actionPerformedBtnCerrar(ActionEvent e) {

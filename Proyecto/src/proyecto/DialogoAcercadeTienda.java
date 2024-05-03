@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
 
 public class DialogoAcercadeTienda extends JDialog {
 
@@ -30,6 +31,8 @@ public class DialogoAcercadeTienda extends JDialog {
 	 * Create the dialog.
 	 */
 	public DialogoAcercadeTienda() {
+		setModal(true);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DialogoAcercadeTienda.class.getResource("/Imagenes/iconoEscudo.png")));
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());

@@ -50,6 +50,7 @@ public class DialogoListar extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DialogoListar() {
+		setModal(true);
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(DialogoListar.class.getResource("/Imagenes/iconoEscudo.png")));
 		setBackground(new Color(255, 255, 255));
@@ -102,41 +103,44 @@ public class DialogoListar extends JDialog implements ActionListener {
 
 		txtS.setText("LISTADO DE COCINAS\n\n");
 
-		txtS.append("Modelo     : " + MenuPrincipal.modelo0 + "\n");
-		txtS.append("Precio     : " + MenuPrincipal.precio0 + "\n");
-		txtS.append("Fondo      : " + MenuPrincipal.fondo0 + "\n");
-		txtS.append("Ancho      : " + MenuPrincipal.ancho0 + "\n");
-		txtS.append("Alto       : " + MenuPrincipal.alto0 + "\n");
-		txtS.append("Quemadores : " + MenuPrincipal.quemadores0 + "\n\n");
+		imprimir("Modelo     : " + MenuPrincipal.modelo0);
+		imprimir("Precio     : " + MenuPrincipal.precio0);
+		imprimir("Fondo      : " + MenuPrincipal.fondo0);
+		imprimir("Ancho      : " + MenuPrincipal.ancho0);
+		imprimir("Alto       : " + MenuPrincipal.alto0);
+		imprimir("Quemadores : " + MenuPrincipal.quemadores0 + "\n");
 
-		txtS.append("Modelo     : " + MenuPrincipal.modelo1 + "\n");
-		txtS.append("Precio     : " + MenuPrincipal.precio1 + "\n");
-		txtS.append("Fondo      : " + MenuPrincipal.fondo1 + "\n");
-		txtS.append("Ancho      : " + MenuPrincipal.ancho1 + "\n");
-		txtS.append("Alto       : " + MenuPrincipal.alto1 + "\n");
-		txtS.append("Quemadores : " + MenuPrincipal.quemadores1 + "\n\n");
+		imprimir("Modelo     : " + MenuPrincipal.modelo1);
+		imprimir("Precio     : " + MenuPrincipal.precio1);
+		imprimir("Fondo      : " + MenuPrincipal.fondo1);
+		imprimir("Ancho      : " + MenuPrincipal.ancho1);
+		imprimir("Alto       : " + MenuPrincipal.alto1);
+		imprimir("Quemadores : " + MenuPrincipal.quemadores1 + "\n");
 
-		txtS.append("Modelo     : " + MenuPrincipal.modelo2 + "\n");
-		txtS.append("Precio     : " + MenuPrincipal.precio2 + "\n");
-		txtS.append("Fondo      : " + MenuPrincipal.fondo2 + "\n");
-		txtS.append("Ancho      : " + MenuPrincipal.ancho2 + "\n");
-		txtS.append("Alto       : " + MenuPrincipal.alto2 + "\n");
-		txtS.append("Quemadores : " + MenuPrincipal.quemadores2 + "\n\n");
+		imprimir("Modelo     : " + MenuPrincipal.modelo2);
+		imprimir("Precio     : " + MenuPrincipal.precio2);
+		imprimir("Fondo      : " + MenuPrincipal.fondo2);
+		imprimir("Ancho      : " + MenuPrincipal.ancho2);
+		imprimir("Alto       : " + MenuPrincipal.alto2);
+		imprimir("Quemadores : " + MenuPrincipal.quemadores2 + "\n");
 
-		txtS.append("Modelo     : " + MenuPrincipal.modelo3 + "\n");
-		txtS.append("Precio     : " + MenuPrincipal.precio3 + "\n");
-		txtS.append("Fondo      : " + MenuPrincipal.fondo3 + "\n");
-		txtS.append("Ancho      : " + MenuPrincipal.ancho3 + "\n");
-		txtS.append("Alto       : " + MenuPrincipal.alto3 + "\n");
-		txtS.append("Quemadores : " + MenuPrincipal.quemadores3 + "\n\n");
+		imprimir("Modelo     : " + MenuPrincipal.modelo3);
+		imprimir("Precio     : " + MenuPrincipal.precio3);
+		imprimir("Fondo      : " + MenuPrincipal.fondo3);
+		imprimir("Ancho      : " + MenuPrincipal.ancho3);
+		imprimir("Alto       : " + MenuPrincipal.alto3);
+		imprimir("Quemadores : " + MenuPrincipal.quemadores3 + "\n");
 
-		txtS.append("Modelo     : " + MenuPrincipal.modelo4 + "\n");
-		txtS.append("Precio     : " + MenuPrincipal.precio4 + "\n");
-		txtS.append("Fondo      : " + MenuPrincipal.fondo4 + "\n");
-		txtS.append("Ancho      : " + MenuPrincipal.ancho4 + "\n");
-		txtS.append("Alto       : " + MenuPrincipal.alto4 + "\n");
-		txtS.append("Quemadores : " + MenuPrincipal.quemadores4);
-
+		imprimir("Modelo     : " + MenuPrincipal.modelo4);
+		imprimir("Precio     : " + MenuPrincipal.precio4);
+		imprimir("Fondo      : " + MenuPrincipal.fondo4);
+		imprimir("Ancho      : " + MenuPrincipal.ancho4);
+		imprimir("Alto       : " + MenuPrincipal.alto4);
+		imprimir("Quemadores : " + MenuPrincipal.quemadores4);
+	}
+	
+	void imprimir(String s) {
+		txtS.append(s + "\n");
 	}
 
 	protected void actionPerformedBtnCerrar(ActionEvent e) {

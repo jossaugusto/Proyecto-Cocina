@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.awt.Cursor;
+import java.awt.Toolkit;
 
 public class DialogoConfigurarObsequio extends JDialog implements ActionListener, KeyListener {
 
@@ -42,6 +43,8 @@ public class DialogoConfigurarObsequio extends JDialog implements ActionListener
 	 * Create the dialog.
 	 */
 	public DialogoConfigurarObsequio() {
+		setModal(true);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DialogoConfigurarObsequio.class.getResource("/Imagenes/iconoEscudo.png")));
 		setTitle("Configurar obsequios");
 		setBounds(100, 100, 450, 134);
 		getContentPane().setLayout(new BorderLayout());
@@ -65,7 +68,7 @@ public class DialogoConfigurarObsequio extends JDialog implements ActionListener
 			contentPanel.add(lblObsequio3);
 		}
 		{
-			txtObsequio1 = new JTextField(MenuPrincipal.obsequio1 + "");
+			txtObsequio1 = new JTextField();
 			txtObsequio1.addKeyListener(this);
 			txtObsequio1.setColumns(10);
 			txtObsequio1.setBorder(null);
@@ -87,7 +90,7 @@ public class DialogoConfigurarObsequio extends JDialog implements ActionListener
 			contentPanel.add(btnCancelar);
 		}
 		{
-			txtObsequio2 = new JTextField(MenuPrincipal.obsequio2 + "");
+			txtObsequio2 = new JTextField();
 			txtObsequio2.addKeyListener(this);
 			txtObsequio2.setColumns(10);
 			txtObsequio2.setBorder(null);
@@ -95,13 +98,21 @@ public class DialogoConfigurarObsequio extends JDialog implements ActionListener
 			contentPanel.add(txtObsequio2);
 		}
 		{
-			txtObsequio3 = new JTextField(MenuPrincipal.obsequio3 + "");
+			txtObsequio3 = new JTextField();
 			txtObsequio3.addKeyListener(this);
 			txtObsequio3.setColumns(10);
 			txtObsequio3.setBorder(null);
 			txtObsequio3.setBounds(140, 62, 86, 20);
 			contentPanel.add(txtObsequio3);
+			
+			mostrarDatos();
 		}
+	}
+	
+	void mostrarDatos() {
+		txtObsequio1.setText(MenuPrincipal.obsequio1 + "");
+		txtObsequio2.setText(MenuPrincipal.obsequio2 + "");
+		txtObsequio3.setText(MenuPrincipal.obsequio3 + "");
 	}
 
 	public void actionPerformed(ActionEvent e) {
