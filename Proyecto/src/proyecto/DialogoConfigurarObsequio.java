@@ -44,7 +44,8 @@ public class DialogoConfigurarObsequio extends JDialog implements ActionListener
 	 */
 	public DialogoConfigurarObsequio() {
 		setModal(true);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(DialogoConfigurarObsequio.class.getResource("/Imagenes/iconoEscudo.png")));
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(DialogoConfigurarObsequio.class.getResource("/Imagenes/iconoEscudo.png")));
 		setTitle("Configurar obsequios");
 		setBounds(100, 100, 450, 134);
 		getContentPane().setLayout(new BorderLayout());
@@ -104,11 +105,11 @@ public class DialogoConfigurarObsequio extends JDialog implements ActionListener
 			txtObsequio3.setBorder(null);
 			txtObsequio3.setBounds(140, 62, 86, 20);
 			contentPanel.add(txtObsequio3);
-			
+
 			mostrarDatos();
 		}
 	}
-	
+
 	void mostrarDatos() {
 		txtObsequio1.setText(MenuPrincipal.obsequio1 + "");
 		txtObsequio2.setText(MenuPrincipal.obsequio2 + "");
@@ -138,16 +139,22 @@ public class DialogoConfigurarObsequio extends JDialog implements ActionListener
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 
+		int salir = JOptionPane.showConfirmDialog(this, "¿Estas seguro de guardar el cambio?", "Confirmacion",
+				JOptionPane.YES_NO_OPTION);
+		if (salir == JOptionPane.YES_OPTION) {
+			JOptionPane.showMessageDialog(this, "Guardado Exitoso", "Aviso", 1, null);
+			MenuPrincipal.obsequio1 = cambiarObsequio1();
+			MenuPrincipal.obsequio2 = cambiarObsequio2();
+			MenuPrincipal.obsequio3 = cambiarObsequio3();
+			dispose();
+
+		}
+
 		if (txtObsequio1.getText().isEmpty() || txtObsequio2.getText().isEmpty() || txtObsequio3.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(this, "Coloque el obsequio deseado");
 			return;
 		}
 
-		MenuPrincipal.obsequio1 = cambiarObsequio1();
-		MenuPrincipal.obsequio2 = cambiarObsequio2();
-		MenuPrincipal.obsequio3 = cambiarObsequio3();
-
-		dispose();
 	}
 
 	protected void actionPerformedBtnCancelar(ActionEvent e) {

@@ -49,7 +49,8 @@ public class DialogoConfigurarDescuento extends JDialog implements ActionListene
 	 */
 	public DialogoConfigurarDescuento() {
 		setModal(true);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(DialogoConfigurarDescuento.class.getResource("/Imagenes/iconoEscudo.png")));
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(DialogoConfigurarDescuento.class.getResource("/Imagenes/iconoEscudo.png")));
 		setTitle("Configurar porcentajes de descuento");
 		setBounds(100, 100, 450, 178);
 		getContentPane().setLayout(new BorderLayout());
@@ -113,7 +114,7 @@ public class DialogoConfigurarDescuento extends JDialog implements ActionListene
 		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(321, 23, 89, 23);
 		contentPanel.add(btnAceptar);
-		
+
 		mostrarDatos();
 	}
 
@@ -123,7 +124,7 @@ public class DialogoConfigurarDescuento extends JDialog implements ActionListene
 		txtPorcentaje3.setText(MenuPrincipal.porcentaje3 + "");
 		txtPorcentaje4.setText(MenuPrincipal.porcentaje4 + "");
 	}
-	
+
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCancelar) {
 			actionPerformedBtnCancelar(e);
@@ -159,18 +160,23 @@ public class DialogoConfigurarDescuento extends JDialog implements ActionListene
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 
+		int salir = JOptionPane.showConfirmDialog(this, "¿Estas seguro de guardar el cambio?", "Confirmacion",
+				JOptionPane.YES_NO_OPTION);
+		if (salir == JOptionPane.YES_OPTION) {
+
+			JOptionPane.showMessageDialog(this, "Guardado Exitoso", "Aviso", 1, null);
+			MenuPrincipal.porcentaje1 = cambiarPorcentaje1();
+			MenuPrincipal.porcentaje2 = cambiarPorcentaje2();
+			MenuPrincipal.porcentaje3 = cambiarPorcentaje3();
+			MenuPrincipal.porcentaje4 = cambiarPorcentaje4();
+			dispose();
+		}
+
 		if (txtPorcentaje1.getText().isEmpty() || txtPorcentaje2.getText().isEmpty()
 				|| txtPorcentaje3.getText().isEmpty() || txtPorcentaje4.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(this, "Coloque el porcentaje deseado");
 			return;
 		}
-
-		MenuPrincipal.porcentaje1 = cambiarPorcentaje1();
-		MenuPrincipal.porcentaje2 = cambiarPorcentaje2();
-		MenuPrincipal.porcentaje3 = cambiarPorcentaje3();
-		MenuPrincipal.porcentaje4 = cambiarPorcentaje4();
-
-		dispose();
 
 	}
 

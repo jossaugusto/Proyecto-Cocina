@@ -311,7 +311,14 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 		leerAnchoMenor();
 		leerAnchoMayor();
 		calcularPromedio();
-		dispose();
+		int salir = JOptionPane.showConfirmDialog(this, "¿Estas seguro de guardar el cambio?", "Confirmacion",
+				JOptionPane.YES_NO_OPTION);
+		if (salir == JOptionPane.YES_OPTION) {
+
+			JOptionPane.showMessageDialog(this, "Guardado Exitoso", "Aviso", 1, null);
+			dispose();
+		}
+
 	}
 
 	void leerPrecioMenor() {
