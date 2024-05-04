@@ -104,7 +104,10 @@ public class DialogoCuotaDiaria extends JDialog implements ActionListener, KeyLi
 	}
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-
+		int salir = JOptionPane.showConfirmDialog(this, "¿Estas seguro de guardar el cambio?", "Confirmacion",
+				JOptionPane.YES_NO_OPTION);
+			JOptionPane.showMessageDialog(this, "Guardado Exitoso", "Aviso", 1, null);
+		
 		if (txtCuotaDiaria.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
 			return;

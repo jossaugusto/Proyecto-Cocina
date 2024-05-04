@@ -171,32 +171,32 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/Imagenes/iconoEscudo.png")));
 		setTitle("Tienda1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 900, 583);
+		setBounds(100, 100, 943, 583);
 
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
 		mnArchivo = new JMenu("Archivo");
-		mnArchivo.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\abrir-documento.png"));
+		mnArchivo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/abrir-documento.png")));
 		menuBar.add(mnArchivo);
 
 		mntmNewMenuItem = new JMenuItem("Salir del Sistema");
 		mntmNewMenuItem.addActionListener(this);
-		mntmNewMenuItem.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\cerrar-sesion.png"));
+		mntmNewMenuItem.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/cerrar-sesion.png")));
 		mntmNewMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK));
 		mnArchivo.add(mntmNewMenuItem);
 
 		mnMantenimiento = new JMenu("Mantenimiento");
-		mnMantenimiento.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\mantenimiento.png"));
+		mnMantenimiento.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/mantenimiento.png")));
 		menuBar.add(mnMantenimiento);
 
 		mntmConsultarCocina = new JMenuItem("Consultar Cocina");
-		mntmConsultarCocina.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\consulta.png"));
+		mntmConsultarCocina.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/consulta.png")));
 		mntmConsultarCocina.addActionListener(this);
 		mnMantenimiento.add(mntmConsultarCocina);
 
 		mntmModificarCocina = new JMenuItem("Modificar Cocina");
-		mntmModificarCocina.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\editar.png"));
+		mntmModificarCocina.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/editar.png")));
 		mntmModificarCocina.addActionListener(this);
 		
 		separator_5 = new JSeparator();
@@ -207,16 +207,16 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		mnMantenimiento.add(separator);
 
 		mntmListarCocina = new JMenuItem("Listar Cocina");
-		mntmListarCocina.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\lista-de-verificacion.png"));
+		mntmListarCocina.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/lista-de-verificacion.png")));
 		mntmListarCocina.addActionListener(this);
 		mnMantenimiento.add(mntmListarCocina);
 
 		mnVentas = new JMenu("Ventas");
-		mnVentas.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\mano.png"));
+		mnVentas.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/mano.png")));
 		menuBar.add(mnVentas);
 
 		mntmVender = new JMenuItem("Vender");
-		mntmVender.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\vender.png"));
+		mntmVender.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/vender.png")));
 		mntmVender.addActionListener(this);
 		mnVentas.add(mntmVender);
 
@@ -224,21 +224,21 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		mnVentas.add(separator_1);
 
 		mntmGenerarReportes = new JMenuItem("Generar Reportes");
-		mntmGenerarReportes.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\dinero.png"));
+		mntmGenerarReportes.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/dinero.png")));
 		mntmGenerarReportes.addActionListener(this);
 		mnVentas.add(mntmGenerarReportes);
 
 		mnConfiguracion = new JMenu("Configuraci\u00F3n");
-		mnConfiguracion.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\configuraciones.png"));
+		mnConfiguracion.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/configuraciones.png")));
 		menuBar.add(mnConfiguracion);
 
 		mntmConfigurarDescuentos = new JMenuItem("Configurar Descuentos");
-		mntmConfigurarDescuentos.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\descuento.png"));
+		mntmConfigurarDescuentos.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/descuento.png")));
 		mntmConfigurarDescuentos.addActionListener(this);
 		mnConfiguracion.add(mntmConfigurarDescuentos);
 
 		mntmConfigurarObsequios = new JMenuItem("Configurar Obsequios");
-		mntmConfigurarObsequios.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\regalo.png"));
+		mntmConfigurarObsequios.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/regalo.png")));
 		mntmConfigurarObsequios.addActionListener(this);
 		
 		separator_3 = new JSeparator();
@@ -249,12 +249,12 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		mnConfiguracion.add(separator_2);
 
 		mntmConfigurarCantidadOptima = new JMenuItem("Configurar Cantidad \u00D3ptima");
-		mntmConfigurarCantidadOptima.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\ipq.png"));
+		mntmConfigurarCantidadOptima.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/ipq.png")));
 		mntmConfigurarCantidadOptima.addActionListener(this);
 		mnConfiguracion.add(mntmConfigurarCantidadOptima);
 
 		mntmConfigurarCuotaDiaria = new JMenuItem("Configurar Cuota Diaria");
-		mntmConfigurarCuotaDiaria.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\pago.png"));
+		mntmConfigurarCuotaDiaria.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/pago.png")));
 		mntmConfigurarCuotaDiaria.addActionListener(this);
 		
 		separator_4 = new JSeparator();
@@ -262,17 +262,18 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 		mnConfiguracion.add(mntmConfigurarCuotaDiaria);
 
 		mnAyuda = new JMenu("Ayuda");
-		mnAyuda.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\ayuda.png"));
+		mnAyuda.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/ayuda.png")));
 		menuBar.add(mnAyuda);
 
 		mntmAcercadeTienda = new JMenuItem("Acerca de Tienda");
-		mntmAcercadeTienda.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\informacion (1).png"));
+		mntmAcercadeTienda.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/informacion (1).png")));
 		mntmAcercadeTienda.addActionListener(this);
 		mnAyuda.add(mntmAcercadeTienda);
 		getContentPane().setLayout(null);
 		
 		lblImagen = new JLabel("");
-		lblImagen.setBounds(0, 0, 884, 514);
+		lblImagen.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Imagenes/IconoMenu.png")));
+		lblImagen.setBounds(0, 0, 927, 514);
 		getContentPane().add(lblImagen);
 		
 	}
