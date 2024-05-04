@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 public class registro extends JFrame implements ActionListener {
 
@@ -49,6 +50,7 @@ public class registro extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public registro() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(registro.class.getResource("/Imagenes/iconoEscudo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -79,8 +81,8 @@ public class registro extends JFrame implements ActionListener {
 		contentPane.add(lblINICIARSESION);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ANGELY\\Downloads\\contraseña.jpg"));
-		lblNewLabel.setBounds(145, 11, 318, 252);
+		lblNewLabel.setIcon(new ImageIcon(registro.class.getResource("/Imagenes/rata2.0jpeg.jpeg")));
+		lblNewLabel.setBounds(-60, -21, 508, 297);
 		contentPane.add(lblNewLabel);
 		
 		lblUsuario = new JLabel("Usuario:");
@@ -106,13 +108,13 @@ public class registro extends JFrame implements ActionListener {
 		if (txtUsuario.getText().equals("PROYECTO") && contraseñaFinal.equals("1318")) {
 			dispose ();
 			
-			JOptionPane.showMessageDialog(null, "Bienvenido al programa", "INGRESASTE", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Bienvenido al programa", "INGRESASTE", JOptionPane.INFORMATION_MESSAGE);
 			MenuPrincipal m = new MenuPrincipal ();
 			m.setVisible(true);
 			
 	}
 		else {
-		JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
 		
 		txtUsuario.setText("");
 		jpassContraseña.setText("");

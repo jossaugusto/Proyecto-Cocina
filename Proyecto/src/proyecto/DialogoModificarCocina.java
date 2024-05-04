@@ -304,19 +304,24 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 			MenuPrincipal.precioMenor = cambiarPrecio();
 			MenuPrincipal.precioPromedio = (cambiarPrecio() + MenuPrincipal.precioMayor) / 2;
 		} else if (MenuPrincipal.precio0 < MenuPrincipal.precio1 && MenuPrincipal.precio0 < MenuPrincipal.precio2
-				&& MenuPrincipal.precio0 < MenuPrincipal.precio3 && MenuPrincipal.precio0 < MenuPrincipal.precio4)
+				&& MenuPrincipal.precio0 < MenuPrincipal.precio3 && MenuPrincipal.precio0 < MenuPrincipal.precio4) {
 			MenuPrincipal.precioMenor = MenuPrincipal.precio0;
-		else if (MenuPrincipal.precio1 < MenuPrincipal.precio0 && MenuPrincipal.precio1 < MenuPrincipal.precio2
-				&& MenuPrincipal.precio1 < MenuPrincipal.precio3 && MenuPrincipal.precio1 < MenuPrincipal.precio4)
+			MenuPrincipal.precioPromedio = (MenuPrincipal.precio0 + MenuPrincipal.precioMayor) / 2;
+		} else if (MenuPrincipal.precio1 < MenuPrincipal.precio0 && MenuPrincipal.precio1 < MenuPrincipal.precio2
+				&& MenuPrincipal.precio1 < MenuPrincipal.precio3 && MenuPrincipal.precio1 < MenuPrincipal.precio4) {
 			MenuPrincipal.precioMenor = MenuPrincipal.precio1;
-		else if (MenuPrincipal.precio2 < MenuPrincipal.precio1 && MenuPrincipal.precio2 < MenuPrincipal.precio0
-				&& MenuPrincipal.precio2 < MenuPrincipal.precio3 && MenuPrincipal.precio2 < MenuPrincipal.precio4)
+			MenuPrincipal.precioPromedio = (MenuPrincipal.precio1 + MenuPrincipal.precioMayor) / 2;
+		} else if (MenuPrincipal.precio2 < MenuPrincipal.precio1 && MenuPrincipal.precio2 < MenuPrincipal.precio0
+				&& MenuPrincipal.precio2 < MenuPrincipal.precio3 && MenuPrincipal.precio2 < MenuPrincipal.precio4) {
 			MenuPrincipal.precioMenor = MenuPrincipal.precio2;
-		else if (MenuPrincipal.precio3 < MenuPrincipal.precio1 && MenuPrincipal.precio3 < MenuPrincipal.precio2
-				&& MenuPrincipal.precio3 < MenuPrincipal.precio0 && MenuPrincipal.precio3 < MenuPrincipal.precio4)
+			MenuPrincipal.precioPromedio = (MenuPrincipal.precio2 + MenuPrincipal.precioMayor) / 2;
+		} else if (MenuPrincipal.precio3 < MenuPrincipal.precio1 && MenuPrincipal.precio3 < MenuPrincipal.precio2
+				&& MenuPrincipal.precio3 < MenuPrincipal.precio0 && MenuPrincipal.precio3 < MenuPrincipal.precio4) {
 			MenuPrincipal.precioMenor = MenuPrincipal.precio3;
-		else
+			MenuPrincipal.precioPromedio = (MenuPrincipal.precio3 + MenuPrincipal.precioMayor) / 2;
+		} else
 			MenuPrincipal.precioMenor = MenuPrincipal.precio4;
+		MenuPrincipal.precioPromedio = (MenuPrincipal.precio4 + MenuPrincipal.precioMayor) / 2;
 	}
 
 	void leerPrecioMayor() {
@@ -324,39 +329,49 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 			MenuPrincipal.precioMayor = cambiarPrecio();
 			MenuPrincipal.precioPromedio = (cambiarPrecio() + MenuPrincipal.precioMenor) / 2;
 		} else if (MenuPrincipal.precio0 > MenuPrincipal.precio1 && MenuPrincipal.precio0 > MenuPrincipal.precio2
-				&& MenuPrincipal.precio0 > MenuPrincipal.precio3 && MenuPrincipal.precio0 > MenuPrincipal.precio4)
+				&& MenuPrincipal.precio0 > MenuPrincipal.precio3 && MenuPrincipal.precio0 > MenuPrincipal.precio4) {
 			MenuPrincipal.precioMayor = MenuPrincipal.precio0;
-		else if (MenuPrincipal.precio1 > MenuPrincipal.precio0 && MenuPrincipal.precio1 > MenuPrincipal.precio2
-				&& MenuPrincipal.precio1 > MenuPrincipal.precio3 && MenuPrincipal.precio1 > MenuPrincipal.precio4)
+			MenuPrincipal.precioPromedio = (MenuPrincipal.precio0 + MenuPrincipal.precioMenor) / 2;
+		} else if (MenuPrincipal.precio1 > MenuPrincipal.precio0 && MenuPrincipal.precio1 > MenuPrincipal.precio2
+				&& MenuPrincipal.precio1 > MenuPrincipal.precio3 && MenuPrincipal.precio1 > MenuPrincipal.precio4) {
 			MenuPrincipal.precioMayor = MenuPrincipal.precio1;
-		else if (MenuPrincipal.precio2 > MenuPrincipal.precio1 && MenuPrincipal.precio2 > MenuPrincipal.precio0
-				&& MenuPrincipal.precio2 > MenuPrincipal.precio3 && MenuPrincipal.precio2 > MenuPrincipal.precio4)
+			MenuPrincipal.precioPromedio = (MenuPrincipal.precio1 + MenuPrincipal.precioMenor) / 2;
+		} else if (MenuPrincipal.precio2 > MenuPrincipal.precio1 && MenuPrincipal.precio2 > MenuPrincipal.precio0
+				&& MenuPrincipal.precio2 > MenuPrincipal.precio3 && MenuPrincipal.precio2 > MenuPrincipal.precio4) {
 			MenuPrincipal.precioMayor = MenuPrincipal.precio2;
-		else if (MenuPrincipal.precio3 > MenuPrincipal.precio1 && MenuPrincipal.precio3 > MenuPrincipal.precio2
-				&& MenuPrincipal.precio3 > MenuPrincipal.precio0 && MenuPrincipal.precio3 > MenuPrincipal.precio4)
+			MenuPrincipal.precioPromedio = (MenuPrincipal.precio2 + MenuPrincipal.precioMenor) / 2;
+		} else if (MenuPrincipal.precio3 > MenuPrincipal.precio1 && MenuPrincipal.precio3 > MenuPrincipal.precio2
+				&& MenuPrincipal.precio3 > MenuPrincipal.precio0 && MenuPrincipal.precio3 > MenuPrincipal.precio4) {
 			MenuPrincipal.precioMayor = MenuPrincipal.precio3;
-		else
+			MenuPrincipal.precioPromedio = (MenuPrincipal.precio3 + MenuPrincipal.precioMenor) / 2;
+		} else
 			MenuPrincipal.precioMayor = MenuPrincipal.precio4;
+		MenuPrincipal.precioPromedio = (MenuPrincipal.precio4 + MenuPrincipal.precioMayor) / 2;
 	}
 
 	void leerAnchoMenor() {
 		if (cambiarPrecio() < MenuPrincipal.anchoMenor) {
 			MenuPrincipal.anchoMenor = cambiarPrecio();
 			MenuPrincipal.anchoPromedio = (cambiarPrecio() + MenuPrincipal.anchoMayor) / 2;
-		}  else if (MenuPrincipal.ancho0 < MenuPrincipal.ancho1 && MenuPrincipal.ancho0 < MenuPrincipal.ancho2
-				&& MenuPrincipal.ancho0 < MenuPrincipal.ancho3 && MenuPrincipal.ancho0 < MenuPrincipal.ancho4)
+		} else if (MenuPrincipal.ancho0 < MenuPrincipal.ancho1 && MenuPrincipal.ancho0 < MenuPrincipal.ancho2
+				&& MenuPrincipal.ancho0 < MenuPrincipal.ancho3 && MenuPrincipal.ancho0 < MenuPrincipal.ancho4) {
 			MenuPrincipal.anchoMenor = MenuPrincipal.ancho0;
-		else if (MenuPrincipal.ancho1 < MenuPrincipal.ancho0 && MenuPrincipal.ancho1 < MenuPrincipal.ancho2
-				&& MenuPrincipal.ancho1 < MenuPrincipal.ancho3 && MenuPrincipal.ancho1 < MenuPrincipal.ancho4)
+			MenuPrincipal.anchoPromedio = (MenuPrincipal.ancho0 + MenuPrincipal.anchoMayor) / 2;
+		} else if (MenuPrincipal.ancho1 < MenuPrincipal.ancho0 && MenuPrincipal.ancho1 < MenuPrincipal.ancho2
+				&& MenuPrincipal.ancho1 < MenuPrincipal.ancho3 && MenuPrincipal.ancho1 < MenuPrincipal.ancho4) {
 			MenuPrincipal.anchoMenor = MenuPrincipal.ancho1;
-		else if (MenuPrincipal.ancho2 < MenuPrincipal.ancho1 && MenuPrincipal.ancho2 < MenuPrincipal.ancho0
-				&& MenuPrincipal.ancho2 < MenuPrincipal.ancho3 && MenuPrincipal.ancho2 < MenuPrincipal.ancho4)
+			MenuPrincipal.anchoPromedio = (MenuPrincipal.ancho1 + MenuPrincipal.anchoMayor) / 2;
+		} else if (MenuPrincipal.ancho2 < MenuPrincipal.ancho1 && MenuPrincipal.ancho2 < MenuPrincipal.ancho0
+				&& MenuPrincipal.ancho2 < MenuPrincipal.ancho3 && MenuPrincipal.ancho2 < MenuPrincipal.ancho4) {
 			MenuPrincipal.anchoMenor = MenuPrincipal.ancho2;
-		else if (MenuPrincipal.ancho3 < MenuPrincipal.ancho1 && MenuPrincipal.ancho3 < MenuPrincipal.ancho2
-				&& MenuPrincipal.ancho3 < MenuPrincipal.ancho0 && MenuPrincipal.ancho3 < MenuPrincipal.ancho4)
+			MenuPrincipal.anchoPromedio = (MenuPrincipal.ancho2 + MenuPrincipal.anchoMayor) / 2;
+		} else if (MenuPrincipal.ancho3 < MenuPrincipal.ancho1 && MenuPrincipal.ancho3 < MenuPrincipal.ancho2
+				&& MenuPrincipal.ancho3 < MenuPrincipal.ancho0 && MenuPrincipal.ancho3 < MenuPrincipal.ancho4) {
 			MenuPrincipal.anchoMenor = MenuPrincipal.ancho3;
-		else
+			MenuPrincipal.anchoPromedio = (MenuPrincipal.ancho3 + MenuPrincipal.anchoMayor) / 2;
+		} else
 			MenuPrincipal.anchoMenor = MenuPrincipal.ancho4;
+			MenuPrincipal.anchoPromedio = (MenuPrincipal.ancho4 + MenuPrincipal.anchoMayor) / 2;
 	}
 
 	void leerAnchoMayor() {
@@ -364,19 +379,24 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, K
 			MenuPrincipal.anchoMayor = cambiarPrecio();
 			MenuPrincipal.anchoPromedio = (cambiarPrecio() + MenuPrincipal.anchoMenor) / 2;
 		} else if (MenuPrincipal.ancho0 > MenuPrincipal.ancho1 && MenuPrincipal.ancho0 > MenuPrincipal.ancho2
-				&& MenuPrincipal.ancho0 > MenuPrincipal.ancho3 && MenuPrincipal.ancho0 > MenuPrincipal.ancho4)
+				&& MenuPrincipal.ancho0 > MenuPrincipal.ancho3 && MenuPrincipal.ancho0 > MenuPrincipal.ancho4) {
 			MenuPrincipal.anchoMayor = MenuPrincipal.ancho0;
-		else if (MenuPrincipal.ancho1 > MenuPrincipal.ancho0 && MenuPrincipal.ancho1 > MenuPrincipal.ancho2
-				&& MenuPrincipal.ancho1 > MenuPrincipal.ancho3 && MenuPrincipal.ancho1 > MenuPrincipal.ancho4)
+			MenuPrincipal.anchoPromedio = (MenuPrincipal.ancho0 + MenuPrincipal.anchoMenor) / 2;
+		} else if (MenuPrincipal.ancho1 > MenuPrincipal.ancho0 && MenuPrincipal.ancho1 > MenuPrincipal.ancho2
+				&& MenuPrincipal.ancho1 > MenuPrincipal.ancho3 && MenuPrincipal.ancho1 > MenuPrincipal.ancho4) {
 			MenuPrincipal.anchoMayor = MenuPrincipal.ancho1;
-		else if (MenuPrincipal.ancho2 > MenuPrincipal.ancho1 && MenuPrincipal.ancho2 > MenuPrincipal.ancho0
-				&& MenuPrincipal.ancho2 > MenuPrincipal.ancho3 && MenuPrincipal.ancho2 > MenuPrincipal.ancho4)
+			MenuPrincipal.anchoPromedio = (MenuPrincipal.ancho1 + MenuPrincipal.anchoMenor) / 2;
+		} else if (MenuPrincipal.ancho2 > MenuPrincipal.ancho1 && MenuPrincipal.ancho2 > MenuPrincipal.ancho0
+				&& MenuPrincipal.ancho2 > MenuPrincipal.ancho3 && MenuPrincipal.ancho2 > MenuPrincipal.ancho4) {
 			MenuPrincipal.anchoMayor = MenuPrincipal.ancho2;
-		else if (MenuPrincipal.ancho3 > MenuPrincipal.ancho1 && MenuPrincipal.ancho3 > MenuPrincipal.ancho2
-				&& MenuPrincipal.ancho3 > MenuPrincipal.ancho0 && MenuPrincipal.ancho3 > MenuPrincipal.ancho4)
+			MenuPrincipal.anchoPromedio = (MenuPrincipal.ancho2 + MenuPrincipal.anchoMenor) / 2;
+		} else if (MenuPrincipal.ancho3 > MenuPrincipal.ancho1 && MenuPrincipal.ancho3 > MenuPrincipal.ancho2
+				&& MenuPrincipal.ancho3 > MenuPrincipal.ancho0 && MenuPrincipal.ancho3 > MenuPrincipal.ancho4) {
 			MenuPrincipal.anchoMayor = MenuPrincipal.ancho3;
-		else
+			MenuPrincipal.anchoPromedio = (MenuPrincipal.ancho3 + MenuPrincipal.anchoMenor) / 2;
+		} else
 			MenuPrincipal.anchoMayor = MenuPrincipal.ancho4;
+		MenuPrincipal.anchoPromedio = (MenuPrincipal.ancho4 + MenuPrincipal.anchoMenor) / 2;
 	}
 
 	void imprimir(double pre, double anc, double alt, double fond, int quem) {
