@@ -3,7 +3,6 @@ package proyecto;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
@@ -13,6 +12,7 @@ import java.awt.Font;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Cursor;
 
 public class DialogoAcercadeTienda extends JDialog implements ActionListener {
 
@@ -116,6 +116,7 @@ public class DialogoAcercadeTienda extends JDialog implements ActionListener {
 		getContentPane().add(lblNewLabel_6);
 
 		btncerrar = new JButton("Cerrar");
+		btncerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btncerrar.setForeground(Color.BLACK);
 		btncerrar.setBackground(new Color(135, 206, 235));
 		btncerrar.addActionListener(this);

@@ -176,8 +176,12 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 
 	protected void actionPerformedBtnVender(ActionEvent e) {
 
-		campoTextoVacio();
-
+//=============campo de texto vacio=================================================
+		if (txtCantidad.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
+			return;
+		}
+//===================================================================================
 		cantidad = leerCantidad();
 
 		modelo = leerModelo();
@@ -200,13 +204,6 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 
 		mostraMensajeEnPantalla();
 
-	}
-
-	void campoTextoVacio() {
-		if (txtCantidad.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
-			return;
-		}
 	}
 
 	int leerCantidad() {
@@ -236,12 +233,8 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 			precio = MenuPrincipal.precio4;
 			break;
 		}
-			if (precio < MenuPrincipal.precio0 || precio < MenuPrincipal.precio1 || precio < MenuPrincipal.precio2
-					|| precio < MenuPrincipal.precio3 || precio < MenuPrincipal.precio4)
-				MenuPrincipal.precioMenor = precio;
 		return precio;
 	}
-
 
 	Double calcularImporteCompra() {
 		return precio * cantidad;
@@ -324,7 +317,7 @@ public class DialogoVender1 extends JDialog implements ActionListener, KeyListen
 		imprimir("importe a pagar\t\t: " + String.format("S/.%,6.2f", impP));
 		imprimir("Obsequio\t\t: " + regalo);
 	}
-	
+
 	void imprimir(String s) {
 		txtS.append(s + "\n");
 	}

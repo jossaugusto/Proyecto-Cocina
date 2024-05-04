@@ -1,10 +1,9 @@
 package proyecto;
 
 import java.awt.EventQueue;
-import java.awt.Image;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -128,7 +127,7 @@ public class MenuPrincipal extends JFrame implements ActionListener {
 	//Precios Promedio, Mayor, Menor
 	public static double precioMayor = precio1;
 	public static double precioMenor = precio3;
-	public static double precioPromedio = (precioMenor/2 + precioMayor/2);
+	public static double precioPromedio = (precioMenor + precioMayor) / 2;
 	public static double anchoMayor = ancho1;
 	public static double anchoMenor = ancho0;
 	public static double anchoPromedio = (anchoMenor + anchoMayor) / 2;

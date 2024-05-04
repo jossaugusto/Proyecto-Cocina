@@ -99,22 +99,25 @@ public class DialogoCuotaDiaria extends JDialog implements ActionListener, KeyLi
 		}
 	}
 
-	double cambiarcuota() {
+	double cambiarCuota() {
 		return Double.parseDouble(txtCuotaDiaria.getText());
 	}
 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
+
 		int salir = JOptionPane.showConfirmDialog(this, "¿Estas seguro de guardar el cambio?", "Confirmacion",
 				JOptionPane.YES_NO_OPTION);
+		if (salir == JOptionPane.YES_OPTION) {
+			MenuPrincipal.cuotaDiaria = cambiarCuota();
 			JOptionPane.showMessageDialog(this, "Guardado Exitoso", "Aviso", 1, null);
-		
+			dispose();
+		}
+
 		if (txtCuotaDiaria.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(this, "Coloque la cantidad deseada");
 			return;
 		}
-		
-		MenuPrincipal.cuotaDiaria = cambiarcuota();
-		dispose();
+
 	}
 
 	protected void actionPerformedBtnCancelar(ActionEvent e) {

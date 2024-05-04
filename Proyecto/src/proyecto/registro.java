@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.Cursor;
 
 public class registro extends JFrame implements ActionListener {
 
@@ -69,6 +70,7 @@ public class registro extends JFrame implements ActionListener {
 		txtUsuario.setColumns(10);
 		
 		btnIniciarsesion = new JButton("Iniciar Sesión ");
+		btnIniciarsesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIniciarsesion.addActionListener(this);
 		btnIniciarsesion.setBounds(22, 180, 188, 40);
 		contentPane.add(btnIniciarsesion);
