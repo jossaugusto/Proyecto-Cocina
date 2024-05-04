@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 public class registro extends JFrame implements ActionListener {
 
@@ -49,6 +50,7 @@ public class registro extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public registro() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(registro.class.getResource("/Imagenes/iconoEscudo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -79,7 +81,7 @@ public class registro extends JFrame implements ActionListener {
 		contentPane.add(lblINICIARSESION);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ANGELY\\Downloads\\contraseña.jpg"));
+		lblNewLabel.setIcon(new ImageIcon(registro.class.getResource("/Imagenes/imagen-registro.jpeg")));
 		lblNewLabel.setBounds(145, 11, 318, 252);
 		contentPane.add(lblNewLabel);
 		
