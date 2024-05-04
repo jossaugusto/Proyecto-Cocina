@@ -81,8 +81,8 @@ public class registro extends JFrame implements ActionListener {
 		contentPane.add(lblINICIARSESION);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(registro.class.getResource("/Imagenes/imagen-registro.jpeg")));
-		lblNewLabel.setBounds(145, 11, 318, 252);
+		lblNewLabel.setIcon(new ImageIcon(registro.class.getResource("/Imagenes/rata2.0jpeg.jpeg")));
+		lblNewLabel.setBounds(-60, -21, 508, 297);
 		contentPane.add(lblNewLabel);
 		
 		lblUsuario = new JLabel("Usuario:");
@@ -108,13 +108,13 @@ public class registro extends JFrame implements ActionListener {
 		if (txtUsuario.getText().equals("PROYECTO") && contraseñaFinal.equals("1318")) {
 			dispose ();
 			
-			JOptionPane.showMessageDialog(null, "Bienvenido al programa", "INGRESASTE", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Bienvenido al programa", "INGRESASTE", JOptionPane.INFORMATION_MESSAGE);
 			MenuPrincipal m = new MenuPrincipal ();
 			m.setVisible(true);
 			
 	}
 		else {
-		JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
 		
 		txtUsuario.setText("");
 		jpassContraseña.setText("");
