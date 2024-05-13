@@ -83,8 +83,8 @@ public class registro extends JFrame implements ActionListener {
 		contentPane.add(lblINICIARSESION);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(registro.class.getResource("/Imagenes/rata2.0jpeg.jpeg")));
-		lblNewLabel.setBounds(-60, -21, 508, 297);
+		lblNewLabel.setIcon(new ImageIcon(registro.class.getResource("/Imagenes/imagen-registro.jpeg")));
+		lblNewLabel.setBounds(144, 11, 280, 245);
 		contentPane.add(lblNewLabel);
 		
 		lblUsuario = new JLabel("Usuario:");
